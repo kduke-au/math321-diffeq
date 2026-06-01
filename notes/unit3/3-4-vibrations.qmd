@@ -1,0 +1,6 @@
+---
+title: 'Mechanical and Electrical Vibrations'
+sidebar: notes
+---
+
+Content coming soon.

@@ -1,0 +1,6 @@
+---
+title: 'Introduction to Differential Equations'
+sidebar: notes
+---
+
+Content coming soon.
