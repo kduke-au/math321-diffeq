@@ -1,5 +1,7 @@
 ---
 title: "Math 321 – Differential Equations"
+toc: false
+sidebar: false
 ---
 
 ## Welcome
@@ -8,80 +10,27 @@ title: "Math 321 – Differential Equations"
 
 ---
 
-## The Lorenz System
-
-The curve below traces a solution to the **Lorenz system**:
-
-$$
-\frac{dx}{dt} = \sigma(y - x), \qquad
-\frac{dy}{dt} = x(\rho - z) - y, \qquad
-\frac{dz}{dt} = xy - \beta z
-$$
-
-Set the parameters and initial condition, then press **start** to trace the solution.
-Drag to rotate; scroll to zoom. Press **stop** at any time to explore the curve, then **start** again to continue. **Reset** clears the curve and unlocks the sliders.
-
 ```{=html}
 <style>
-#lz{font-family:var(--bs-font-monospace,monospace);margin:1.5rem 0 2rem}
-#lz-canvas{display:block;width:100%;height:460px;border-radius:6px;background:#0d1117;cursor:grab}
-#lz-canvas:active{cursor:grabbing}
-.lz-section-label{font-size:11px;color:#6a8090;letter-spacing:.08em;text-transform:uppercase;margin-top:14px;margin-bottom:5px}
-.lz-row{display:flex;flex-wrap:wrap;gap:10px 20px;align-items:flex-end}
-.lz-p{display:flex;flex-direction:column;gap:3px;flex:1;min-width:110px}
-.lz-p label{font-size:12px;color:#6a8090;letter-spacing:.05em}
-.lz-pr{display:flex;align-items:center;gap:6px}
-.lz-pr input[type=range]{flex:1;accent-color:#6ec6f5;cursor:pointer}
-.lz-pr input[type=range]:disabled{opacity:.35;cursor:default}
-.lz-v{font-size:12px;color:#aaccdd;min-width:34px;text-align:right}
-.lz-btns{display:flex;gap:6px;align-items:flex-end;padding-bottom:1px}
-.lz-btn{background:transparent;border:1px solid #2a3a4a;color:#7a9aaa;font-size:12px;
-  font-family:var(--bs-font-monospace,monospace);padding:5px 14px;border-radius:4px;
-  cursor:pointer;transition:all .15s}
-.lz-btn:hover:not(:disabled){border-color:#6ec6f5;color:#cce8ff}
-.lz-btn:disabled{opacity:.3;cursor:default}
-.lz-btn.resuming{border-color:#6ef5b0;color:#6ef5b0}
-.lz-legend{display:flex;gap:16px;margin-top:10px;flex-wrap:wrap}
-.lz-li{display:flex;align-items:center;gap:5px;font-size:12px;color:#6a8090}
-.lz-swatch{width:9px;height:9px;border-radius:50%;flex-shrink:0}
-.lz-hint{font-size:11px;color:#3a5060;margin-top:6px}
+#lz-home{margin:1.5rem 0 2rem;line-height:0}
+#lz-home canvas{display:block;width:100%;height:520px;background:#000;border-radius:6px;cursor:grab}
+#lz-home canvas:active{cursor:grabbing}
 </style>
 
-<div id="lz">
-  <canvas id="lz-canvas"></canvas>
-
-  <div class="lz-section-label">Select Parameters:</div>
-  <div class="lz-row">
-    <div class="lz-p"><label>σ (sigma)</label><div class="lz-pr"><input type="range" id="lz-sigma" min="1" max="30" step=".5" value="10"><span class="lz-v" id="lz-sv">10.0</span></div></div>
-    <div class="lz-p"><label>ρ (rho)</label><div class="lz-pr"><input type="range" id="lz-rho" min=".5" max="60" step=".5" value="28"><span class="lz-v" id="lz-rv">28.0</span></div></div>
-    <div class="lz-p"><label>β (beta)</label><div class="lz-pr"><input type="range" id="lz-beta" min=".5" max="6" step=".1" value="2.7"><span class="lz-v" id="lz-bv">2.7</span></div></div>
-  </div>
-
-  <div class="lz-section-label" style="margin-top:10px">Select Initial Condition:</div>
-  <div class="lz-row">
-    <div class="lz-p"><label>x₀</label><div class="lz-pr"><input type="range" id="lz-x0" min="-20" max="20" step=".5" value="1"><span class="lz-v" id="lz-x0v">1.0</span></div></div>
-    <div class="lz-p"><label>y₀</label><div class="lz-pr"><input type="range" id="lz-y0" min="-20" max="20" step=".5" value="1"><span class="lz-v" id="lz-y0v">1.0</span></div></div>
-    <div class="lz-p"><label>z₀</label><div class="lz-pr"><input type="range" id="lz-z0" min="0" max="50" step=".5" value="10"><span class="lz-v" id="lz-z0v">10.0</span></div></div>
-    <div class="lz-btns">
-      <button class="lz-btn" id="lz-start">start</button>
-      <button class="lz-btn" id="lz-stop" disabled>stop</button>
-      <button class="lz-btn" id="lz-reset">reset</button>
-    </div>
-  </div>
-
-  <div class="lz-legend">
-    <div class="lz-li"><div class="lz-swatch" style="background:#6ec6f5"></div>solution curve</div>
-    <div class="lz-li"><div class="lz-swatch" style="background:#f5e96e"></div>initial condition</div>
-    <div class="lz-li"><div class="lz-swatch" style="background:#6ef5a0"></div>current position</div>
-    <div class="lz-li"><div class="lz-swatch" style="background:#e8a0f5"></div>fixed points</div>
-  </div>
-  <p class="lz-hint">drag to rotate · scroll to zoom · sliders lock while animating</p>
+<div id="lz-home">
+<canvas id="lhc"></canvas>
 </div>
 
 <script>
 (function(){
 
-const cv  = document.getElementById('lz-canvas');
+/* ── canvas setup ─────────────────────────────────────────────
+   Canvas has two sizes: CSS size (how big it looks) and pixel
+   buffer size (cv.width/height). On HiDPI screens these differ
+   by devicePixelRatio (usually 2). We set the buffer to the
+   larger size and scale the drawing context back down, so all
+   our coordinates stay in CSS pixels while output is sharp.    */
+const cv  = document.getElementById('lhc');
 const ctx = cv.getContext('2d');
 const dpr = window.devicePixelRatio || 1;
 
@@ -89,175 +38,180 @@ function resize(){
   const r = cv.getBoundingClientRect();
   cv.width  = r.width  * dpr;
   cv.height = r.height * dpr;
-  ctx.setTransform(dpr,0,0,dpr,0,0);
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 }
 resize();
 window.addEventListener('resize', resize);
 
-let sigma=10, rho=28, beta=2.7;
-let x0=1, y0=1, z0=10;
-let rotX=0.45, rotZ=0.3, zoom=3.4;
-let drag=false, lmx=0, lmy=0;
-let pts=[], state='idle';
+/* ── Lorenz parameters (fixed) ────────────────────────────── */
+const SIGMA=10, RHO=28, BETA=8/3;
+const TOTAL=40000, DT=0.0025;
 
-function cw(){ return cv.getBoundingClientRect(); }
-
-function proj(p){
-  const {width:w,height:h} = cw();
-  const cx=Math.cos(rotX), sx=Math.sin(rotX);
-  const cz=Math.cos(rotZ), sz=Math.sin(rotZ);
-  const px=p.x, py=p.y, pz=p.z-25;
-  const y1=py*cx-pz*sx, z1=py*sx+pz*cx;
-  const x2=px*cz-y1*sz;
-  return { sx: w/2+x2*zoom, sy: h/2-z1*zoom };
-}
-
+/* ── RK4 integrator ───────────────────────────────────────────
+   One step of fourth-order Runge-Kutta. Takes current (x,y,z),
+   returns next (x,y,z) after time DT.                          */
 function deriv(x,y,z){
-  return { x:sigma*(y-x), y:x*(rho-z)-y, z:x*y-beta*z };
+  return{ dx:SIGMA*(y-x), dy:x*(RHO-z)-y, dz:x*y-BETA*z };
 }
-function rk4(x,y,z,dt){
+function rk4(x,y,z){
   const k1=deriv(x,y,z);
-  const k2=deriv(x+k1.x*dt/2, y+k1.y*dt/2, z+k1.z*dt/2);
-  const k3=deriv(x+k2.x*dt/2, y+k2.y*dt/2, z+k2.z*dt/2);
-  const k4=deriv(x+k3.x*dt,   y+k3.y*dt,   z+k3.z*dt);
-  return {
-    x: x+(k1.x+2*k2.x+2*k3.x+k4.x)*dt/6,
-    y: y+(k1.y+2*k2.y+2*k3.y+k4.y)*dt/6,
-    z: z+(k1.z+2*k2.z+2*k3.z+k4.z)*dt/6
+  const k2=deriv(x+k1.dx*DT/2, y+k1.dy*DT/2, z+k1.dz*DT/2);
+  const k3=deriv(x+k2.dx*DT/2, y+k2.dy*DT/2, z+k2.dz*DT/2);
+  const k4=deriv(x+k3.dx*DT,   y+k3.dy*DT,   z+k3.dz*DT);
+  return{
+    x:x+(k1.dx+2*k2.dx+2*k3.dx+k4.dx)*DT/6,
+    y:y+(k1.dy+2*k2.dy+2*k3.dy+k4.dy)*DT/6,
+    z:z+(k1.dz+2*k2.dz+2*k3.dz+k4.dz)*DT/6
   };
 }
 
-function fixedPts(){
-  const fp=[{x:0,y:0,z:0}];
-  if(rho>1){
-    const r=Math.sqrt(beta*(rho-1));
-    fp.push({x:r,y:r,z:rho-1},{x:-r,y:-r,z:rho-1});
-  }
-  return fp;
+/* ── pre-compute the full attractor ──────────────────────────
+   We integrate once at startup and store all TOTAL points in a
+   flat Float32Array (3 numbers per point: x,y,z). This is done
+   once; the animation only reads from this array, never
+   re-integrates. Float32Array is faster and more memory-
+   efficient than an array of objects.                          */
+const pts = new Float32Array(TOTAL * 3);
+let x=0.5, y=1, z=25;
+for(let i=0;i<TOTAL;i++){
+  pts[i*3]=x; pts[i*3+1]=y; pts[i*3+2]=z;
+  const n=rk4(x,y,z); x=n.x; y=n.y; z=n.z;
 }
 
-function drawAxes(){
-  const NEG=25, POS=25;
-  const axes=[
-    {from:{x:-NEG,y:0,z:0},      to:{x:POS,y:0,z:0},      lbl:'x'},
-    {from:{x:0,y:-NEG,z:0},      to:{x:0,y:POS,z:0},      lbl:'y'},
-    {from:{x:0,y:0,z:25-NEG},    to:{x:0,y:0,z:25+POS},   lbl:'z'}
-  ];
-  ctx.lineWidth=1;
-  ctx.font='bold 12px monospace';
-  for(const ax of axes){
-    const fp=proj(ax.from), tp=proj(ax.to);
-    ctx.beginPath();
-    ctx.moveTo(fp.sx,fp.sy);
-    ctx.lineTo(tp.sx,tp.sy);
-    ctx.strokeStyle='#2e4a5a';
-    ctx.stroke();
-    const dx=tp.sx-fp.sx, dy=tp.sy-fp.sy;
-    const d=Math.sqrt(dx*dx+dy*dy)||1;
-    ctx.fillStyle='#4a8090';
-    ctx.fillText(ax.lbl, tp.sx+dx/d*10-4, tp.sy+dy/d*10+4);
-  }
+/* ── rotation state ───────────────────────────────────────── */
+let rotX=0.42, rotZ=-0.5;
+let drag=false, lmx=0, lmy=0;
+const ZOOM=8;
+
+/* ── 3D → 2D projection ───────────────────────────────────────
+   Rotates a point by rotX (around X axis) then rotZ (around Z
+   axis), then projects orthographically onto the screen.
+   The -25 offset on z centers the attractor vertically, since
+   it lives near z=25 in phase space.                           */
+function proj(px,py,pz){
+  const r=cv.getBoundingClientRect();
+  const cx=Math.cos(rotX), sx=Math.sin(rotX);
+  const cz=Math.cos(rotZ), sz=Math.sin(rotZ);
+  const qz=pz-25;
+  const y1=py*cx-qz*sx;
+  const z1=py*sx+qz*cx;
+  const x2=px*cz-y1*sz;
+  return{ sx:r.width/2+x2*ZOOM, sy:r.height/2-z1*ZOOM };
 }
 
-function drawScene(){
-  const {width:w,height:h} = cw();
-  ctx.clearRect(0,0,w,h);
-  ctx.fillStyle='#0d1117';
-  ctx.fillRect(0,0,w,h);
-
-  drawAxes();
-
-  for(const fp of fixedPts()){
-    const p=proj(fp);
-    ctx.beginPath();
-    ctx.arc(p.sx,p.sy,5,0,Math.PI*2);
-    ctx.fillStyle='#e8a0f5'; ctx.strokeStyle='#0d1117'; ctx.lineWidth=1;
-    ctx.fill(); ctx.stroke();
+/* ── neon color gradient ──────────────────────────────────────
+   A hand-picked list of neon hues cycling through the spectrum.
+   neonAt(t) takes t in [0,1] and returns an interpolated color
+   by finding which two adjacent hues t falls between, then
+   linearly interpolating their RGB components.                  */
+const NEON=[
+  '#ff2d78','#ff6b2d','#ffd12d','#2dff6b',
+  '#2dd4ff','#7b2dff','#ff2de8','#ff2d78'
+];
+function neonAt(t){
+  const scaled=t*(NEON.length-1);
+  const i=Math.floor(scaled), f=scaled-i;
+  const c0=NEON[i], c1=NEON[Math.min(i+1,NEON.length-1)];
+  function hex(c){
+    return[parseInt(c.slice(1,3),16),
+           parseInt(c.slice(3,5),16),
+           parseInt(c.slice(5,7),16)];
   }
+  const a=hex(c0), b=hex(c1);
+  return`rgb(${Math.round(a[0]+(b[0]-a[0])*f)},${Math.round(a[1]+(b[1]-a[1])*f)},${Math.round(a[2]+(b[2]-a[2])*f)})`;
+}
 
-  if(pts.length>=2){
+/* ── tracer setup ─────────────────────────────────────────────
+   Each tracer is an object with:
+     head  — index into pts[] of the current leading point
+     color — its neon color, fixed for its lifetime
+   Tracers are spaced evenly around the attractor so they are
+   always spread out and don't bunch up.                        */
+const N_TRACERS=7, TAIL=320, SPEED=8;
+const tracers=[];
+for(let i=0;i<N_TRACERS;i++){
+  tracers.push({
+    head:  Math.floor((i/N_TRACERS)*TOTAL),
+    color: neonAt(i/(N_TRACERS-1))
+  });
+}
+
+/* ── ghost: the full attractor outline ───────────────────────
+   A very faint trace of the entire attractor drawn first each
+   frame. This gives the viewer the shape as a whole even where
+   no tracer is currently passing.                              */
+function drawGhost(){
+  ctx.beginPath();
+  const p0=proj(pts[0],pts[1],pts[2]);
+  ctx.moveTo(p0.sx,p0.sy);
+  for(let i=1;i<TOTAL;i++){
+    const p=proj(pts[i*3],pts[i*3+1],pts[i*3+2]);
+    ctx.lineTo(p.sx,p.sy);
+  }
+  ctx.strokeStyle='rgba(255, 255, 255, 0.04)';
+  ctx.lineWidth=0.6;
+  ctx.stroke();
+}
+
+/* ── draw one tracer ──────────────────────────────────────────
+   The tail is split into `segs` small segments. Each segment is
+   drawn at increasing opacity and lineWidth as it approaches
+   the head, creating a glowing comet-tail effect.
+   globalAlpha controls the canvas transparency for each stroke.
+   The bright dot at the head is drawn last (on top).           */
+function drawTracer(t){
+  const segs=80;
+  const step=Math.floor(TAIL/segs);
+  for(let s=0;s<segs;s++){
+    const frac=s/segs;
+    const i0=(t.head - TAIL + s*step + TOTAL) % TOTAL;
+    const i1=(i0+step) % TOTAL;
+    const p0=proj(pts[i0*3],pts[i0*3+1],pts[i0*3+2]);
+    const p1=proj(pts[i1*3],pts[i1*3+1],pts[i1*3+2]);
     ctx.beginPath();
-    const p0=proj(pts[0]);
     ctx.moveTo(p0.sx,p0.sy);
-    for(let i=1;i<pts.length;i++){const p=proj(pts[i]);ctx.lineTo(p.sx,p.sy);}
-    ctx.strokeStyle='#6ec6f5'; ctx.lineWidth=1.2; ctx.globalAlpha=.88;
-    ctx.stroke(); ctx.globalAlpha=1;
-
-    const head=proj(pts[pts.length-1]);
-    ctx.beginPath();
-    ctx.arc(head.sx,head.sy,4,0,Math.PI*2);
-    ctx.fillStyle='#6ef5a0'; ctx.strokeStyle='#0d1117'; ctx.lineWidth=1;
-    ctx.fill(); ctx.stroke();
+    if(i1 > i0){                  // no wraparound — draw normally
+      ctx.lineTo(p1.sx,p1.sy);
+    }                             // wraparound — just skip this segment
+    ctx.globalAlpha = Math.pow(frac,1.5)*0.95;
+    ctx.strokeStyle = t.color;
+    ctx.lineWidth   = 1.0+frac*1.2;
+    ctx.stroke();
   }
-
-  const icPt = state==='idle' ? {x:x0,y:y0,z:z0} : (pts.length>=1 ? pts[0] : null);
-  if(icPt){
-    const ic=proj(icPt);
-    ctx.beginPath();
-    ctx.arc(ic.sx,ic.sy,6,0,Math.PI*2);
-    ctx.fillStyle='#f5e96e'; ctx.strokeStyle='#0d1117'; ctx.lineWidth=1.5;
-    ctx.fill(); ctx.stroke();
-  }
+  ctx.globalAlpha=1;
+  const hp=proj(pts[t.head*3],pts[t.head*3+1],pts[t.head*3+2]);
+  ctx.beginPath();
+  ctx.arc(hp.sx,hp.sy,2.5,0,Math.PI*2);
+  ctx.fillStyle=t.color;
+  ctx.fill();
+  ctx.globalAlpha=1;
 }
 
-const DT=0.005, SPF=5;
-function stepSim(){
-  if(!pts.length) return;
-  let {x,y,z}=pts[pts.length-1];
-  for(let s=0;s<SPF;s++){const n=rk4(x,y,z,DT);pts.push(n);x=n.x;y=n.y;z=n.z;}
-}
-
+/* ── main animation loop ──────────────────────────────────────
+   requestAnimationFrame calls this ~60 times/second.
+   Each frame: clear, draw ghost, draw all tracers, advance all
+   tracer heads by SPEED positions, request next frame.         */
 function loop(){
-  if(state==='running') stepSim();
-  drawScene();
+  const r=cv.getBoundingClientRect();
+  ctx.clearRect(0,0,r.width,r.height);
+  ctx.fillStyle='#000';
+  ctx.fillRect(0,0,r.width,r.height);
+  drawGhost();
+  for(const t of tracers){
+    drawTracer(t);
+    t.head=(t.head+SPEED)%TOTAL;
+  }
   requestAnimationFrame(loop);
 }
 loop();
 
-function allSliders(off){
-  ['lz-sigma','lz-rho','lz-beta','lz-x0','lz-y0','lz-z0']
-    .forEach(id=>{ document.getElementById(id).disabled=off; });
-}
-function syncButtons(){
-  const bs=document.getElementById('lz-start'), bp=document.getElementById('lz-stop');
-  if(state==='idle'){
-    bs.textContent='start'; bs.disabled=false; bs.classList.remove('resuming');
-    bp.disabled=true; allSliders(false);
-  } else if(state==='running'){
-    bs.disabled=true; bs.classList.remove('resuming');
-    bp.disabled=false; allSliders(true);
-  } else {
-    bs.textContent='resume'; bs.disabled=false; bs.classList.add('resuming');
-    bp.disabled=true; allSliders(true);
-  }
-}
-
-document.getElementById('lz-start').addEventListener('click',()=>{
-  if(state==='idle') pts=[{x:x0,y:y0,z:z0}];
-  state='running'; syncButtons();
-});
-document.getElementById('lz-stop').addEventListener('click',()=>{ state='paused'; syncButtons(); });
-document.getElementById('lz-reset').addEventListener('click',()=>{ state='idle'; pts=[]; syncButtons(); });
-
-function bindSlider(id,outId,dec,setter){
-  document.getElementById(id).addEventListener('input',function(){
-    const v=parseFloat(this.value);
-    document.getElementById(outId).textContent=v.toFixed(dec);
-    setter(v);
-  });
-}
-bindSlider('lz-sigma','lz-sv',1,v=>sigma=v);
-bindSlider('lz-rho',  'lz-rv',1,v=>rho=v);
-bindSlider('lz-beta', 'lz-bv',1,v=>beta=v);
-bindSlider('lz-x0',  'lz-x0v',1,v=>x0=v);
-bindSlider('lz-y0',  'lz-y0v',1,v=>y0=v);
-bindSlider('lz-z0',  'lz-z0v',1,v=>z0=v);
-
+/* ── drag-to-rotate interaction ───────────────────────────── */
 cv.addEventListener('mousedown',e=>{drag=true;lmx=e.clientX;lmy=e.clientY;});
 window.addEventListener('mouseup',()=>drag=false);
 window.addEventListener('mousemove',e=>{
-  if(!drag) return;
-  rotZ+=(e.clientX-lmx)*.008; rotX+=(e.clientY-lmy)*.008;
+  if(!drag)return;
+  rotZ+=(e.clientX-lmx)*0.007;
+  rotX+=(e.clientY-lmy)*0.007;
   lmx=e.clientX; lmy=e.clientY;
 });
 cv.addEventListener('touchstart',e=>{
@@ -265,21 +219,17 @@ cv.addEventListener('touchstart',e=>{
 },{passive:true});
 window.addEventListener('touchend',()=>drag=false);
 window.addEventListener('touchmove',e=>{
-  if(!drag) return;
-  rotZ+=(e.touches[0].clientX-lmx)*.008; rotX+=(e.touches[0].clientY-lmy)*.008;
-  lmx=e.touches[0].clientX; lmy=e.touches[0].clientY;
-},{passive:true});
-cv.addEventListener('wheel',e=>{
-  zoom=Math.max(1,Math.min(14,zoom*(e.deltaY>0?.93:1.07)));
+  if(!drag)return;
   e.preventDefault();
+  rotZ+=(e.touches[0].clientX-lmx)*0.007;
+  rotX+=(e.touches[0].clientY-lmy)*0.007;
+  lmx=e.touches[0].clientX; lmy=e.touches[0].clientY;
 },{passive:false});
 
-syncButtons();
 })();
 </script>
 ```
-
-*Classic parameters: σ = 10, ρ = 28, β = 8/3 ≈ 2.7. Try reducing ρ below 24.74 — the chaos disappears and solutions settle onto one of the fixed points.*
+---
 
 This is a Quarto website.
 
