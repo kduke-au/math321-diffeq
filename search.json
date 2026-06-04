@@ -136,21 +136,21 @@
     "href": "index.html",
     "title": "Math 321 – Differential Equations",
     "section": "",
-    "text": "Add your course introduction text here."
+    "text": "Add your course introduction text here.\n\n\n\n\n\n\n\n\n\nThis is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
   },
   {
     "objectID": "index.html#welcome",
     "href": "index.html#welcome",
     "title": "Math 321 – Differential Equations",
     "section": "",
-    "text": "Add your course introduction text here."
+    "text": "Add your course introduction text here.\n\n\n\n\n\n\n\n\n\nThis is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
   },
   {
-    "objectID": "index.html#the-lorenz-system",
-    "href": "index.html#the-lorenz-system",
-    "title": "Math 321 – Differential Equations",
-    "section": "The Lorenz System",
-    "text": "The Lorenz System\nThe curve below traces a solution to the Lorenz system:\n\\[\n\\frac{dx}{dt} = \\sigma(y - x), \\qquad\n\\frac{dy}{dt} = x(\\rho - z) - y, \\qquad\n\\frac{dz}{dt} = xy - \\beta z\n\\]\nSet the parameters and initial condition, then press start to trace the solution. Drag to rotate; scroll to zoom. Press stop at any time to explore the curve, then start again to continue. Reset clears the curve and unlocks the sliders.\n\n\n\n  \n\n  Select Parameters:\n  \n    σ (sigma)10.0\n    ρ (rho)28.0\n    β (beta)2.7\n  \n\n  Select Initial Condition:\n  \n    x₀1.0\n    y₀1.0\n    z₀10.0\n    \n      start\n      stop\n      reset\n    \n  \n\n  \n    solution curve\n    initial condition\n    current position\n    fixed points\n  \n  drag to rotate · scroll to zoom · sliders lock while animating\n\n\n\nClassic parameters: σ = 10, ρ = 28, β = 8/3 ≈ 2.7. Try reducing ρ below 24.74 — the chaos disappears and solutions settle onto one of the fixed points.\nThis is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
+    "objectID": "drafts/lorenz_animation.html",
+    "href": "drafts/lorenz_animation.html",
+    "title": "Math 321 - Differential Equations",
+    "section": "",
+    "text": "Add your homepage introduction text here."
   },
   {
     "objectID": "about.html",
@@ -160,22 +160,22 @@
     "text": "About this site"
   },
   {
-    "objectID": "drafts/lorenz-demo.html",
-    "href": "drafts/lorenz-demo.html",
+    "objectID": "drafts/lorenz_interactive.html",
+    "href": "drafts/lorenz_interactive.html",
     "title": "Math 321 – Differential Equations",
     "section": "",
     "text": "Add your course introduction text here."
   },
   {
-    "objectID": "drafts/lorenz-demo.html#welcome",
-    "href": "drafts/lorenz-demo.html#welcome",
+    "objectID": "drafts/lorenz_interactive.html#welcome",
+    "href": "drafts/lorenz_interactive.html#welcome",
     "title": "Math 321 – Differential Equations",
     "section": "",
     "text": "Add your course introduction text here."
   },
   {
-    "objectID": "drafts/lorenz-demo.html#the-lorenz-system",
-    "href": "drafts/lorenz-demo.html#the-lorenz-system",
+    "objectID": "drafts/lorenz_interactive.html#the-lorenz-system",
+    "href": "drafts/lorenz_interactive.html#the-lorenz-system",
     "title": "Math 321 – Differential Equations",
     "section": "The Lorenz System",
     "text": "The Lorenz System\nThe curve below traces a solution to the Lorenz system:\n\\[\n\\frac{dx}{dt} = \\sigma(y - x), \\qquad\n\\frac{dy}{dt} = x(\\rho - z) - y, \\qquad\n\\frac{dz}{dt} = xy - \\beta z\n\\]\nSet the parameters and initial condition, then press start to trace the solution. Drag to rotate; scroll to zoom. Press stop at any time to explore the curve, then start again to continue. Reset clears the curve and unlocks the sliders.\n\n\n\n  \n\n  Select Parameters:\n  \n    σ (sigma)10.0\n    ρ (rho)28.0\n    β (beta)2.7\n  \n\n  Select Initial Condition:\n  \n    x₀1.0\n    y₀1.0\n    z₀10.0\n    \n      start\n      stop\n      reset\n    \n  \n\n  \n    solution curve\n    initial condition\n    current position\n    fixed points\n  \n  drag to rotate · scroll to zoom · sliders lock while animating\n\n\n\nClassic parameters: σ = 10, ρ = 28, β = 8/3 ≈ 2.7. Try reducing ρ below 24.74 — the chaos disappears and solutions settle onto one of the fixed points."
@@ -185,7 +185,18 @@
     "href": "notes/index.html",
     "title": "Course Notes",
     "section": "",
-    "text": "Content coming soon.",
+    "text": "The curve below traces a solution to the Lorenz system:\n\\[\n\\frac{dx}{dt} = \\sigma(y - x), \\qquad\n\\frac{dy}{dt} = x(\\rho - z) - y, \\qquad\n\\frac{dz}{dt} = xy - \\beta z\n\\]\nSet the parameters and initial condition, then press start to trace the solution. Drag to rotate; scroll to zoom. Press stop at any time to explore the curve, then start again to continue. Reset clears the curve and unlocks the sliders.\n\n\n\n  \n\n  Select Parameters:\n  \n    σ (sigma)10.0\n    ρ (rho)28.0\n    β (beta)2.7\n  \n\n  Select Initial Condition:\n  \n    x₀1.0\n    y₀1.0\n    z₀10.0\n    \n      start\n      stop\n      reset\n    \n  \n\n  \n    solution curve\n    initial condition\n    current position\n    fixed points\n  \n  drag to rotate · scroll to zoom · sliders lock while animating\n\n\n\nClassic parameters: σ = 10, ρ = 28, β = 8/3 ≈ 2.7. Try reducing ρ below 24.74 — the chaos disappears and solutions settle onto one of the fixed points.",
+    "crumbs": [
+      "Course Notes",
+      "Home"
+    ]
+  },
+  {
+    "objectID": "notes/index.html#the-lorenz-system",
+    "href": "notes/index.html#the-lorenz-system",
+    "title": "Course Notes",
+    "section": "",
+    "text": "The curve below traces a solution to the Lorenz system:\n\\[\n\\frac{dx}{dt} = \\sigma(y - x), \\qquad\n\\frac{dy}{dt} = x(\\rho - z) - y, \\qquad\n\\frac{dz}{dt} = xy - \\beta z\n\\]\nSet the parameters and initial condition, then press start to trace the solution. Drag to rotate; scroll to zoom. Press stop at any time to explore the curve, then start again to continue. Reset clears the curve and unlocks the sliders.\n\n\n\n  \n\n  Select Parameters:\n  \n    σ (sigma)10.0\n    ρ (rho)28.0\n    β (beta)2.7\n  \n\n  Select Initial Condition:\n  \n    x₀1.0\n    y₀1.0\n    z₀10.0\n    \n      start\n      stop\n      reset\n    \n  \n\n  \n    solution curve\n    initial condition\n    current position\n    fixed points\n  \n  drag to rotate · scroll to zoom · sliders lock while animating\n\n\n\nClassic parameters: σ = 10, ρ = 28, β = 8/3 ≈ 2.7. Try reducing ρ below 24.74 — the chaos disappears and solutions settle onto one of the fixed points.",
     "crumbs": [
       "Course Notes",
       "Home"
