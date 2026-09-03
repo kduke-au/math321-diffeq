@@ -2,20 +2,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.38">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Introduction to Second Order Equations – Math 321 - Differential Equations</title>
+<title>Analyze the Model – Math 321 - Differential Equations</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -39,12 +42,12 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-0a6b7249c26820e032cb0bd839ff02b1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-a06d91ce84fd25668039cca5222332b2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-1beb5789083f19f8fb5f954f886869a9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-7710af129430d087509bfc82a22d3142.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-649e06d3c18afb2da7ade1e33cee7432.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -72,7 +75,37 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<meta name="quarto:status" content="draft">
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -240,7 +273,7 @@ ul.task-list li input[type="checkbox"] {
   </script>
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top"><div id="quarto-draft-alert" class="alert alert-warning"><i class="bi bi-pencil-square"></i>Draft</div>
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
@@ -270,7 +303,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../notes/unit3/index.html">Unit 3: Second Order Linear Equations</a></li><li class="breadcrumb-item"><a href="../../notes/unit3/3-1-intro.html">Introduction to Second Order Equations</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Analyze the Model</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -291,7 +324,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">Unit 1: Introduction &amp; First Order Equations</span></a>
+ <span class="menu-text">Unit 1: Introduction &amp; First-Order Equations</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -305,174 +338,58 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../notes/unit1/1-1-intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Introduction to Differential Equations</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../notes/unit1/1-2-modeling.html" class="sidebar-item-text sidebar-link">
+  <a href="../../notes/unit1/unit1_1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Modeling with Differential Equations</span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../notes/unit1/1-3-separation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Analytic Solutions: Separation of Variables</span></a>
-  </div>
-</li>
+ <span class="menu-text">Analyze the Model</span>
+  </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../notes/unit1/1-4-slope-fields.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Qualitative Analysis: Slope Fields</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../notes/unit1/1-5-euler.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Numerical Methods: Euler’s Method</span></a>
-  </div>
-</li>
+ <span class="menu-text">Interpret the Model</span>
+  </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">Unit 2: Systems of Linear Equations</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../notes/unit2/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Overview</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../notes/unit2/2-1-intro-systems.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Introduction to Systems</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../notes/unit2/2-2-eigenvalues.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Linear Systems and Eigenvalues</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../notes/unit2/2-3-phase-plane.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Phase Plane Analysis</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../notes/unit2/2-4-stability.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Solution Structure and Stability</span></a>
-  </div>
-</li>
-      </ul>
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">Unit 2: Introduction to Systems</span></span>
   </li>
         <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">Unit 3: Second Order Linear Equations</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../notes/unit3/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Overview</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../notes/unit3/3-1-intro.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Introduction to Second Order Equations</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../notes/unit3/3-2-homogeneous.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Homogeneous Equations</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../notes/unit3/3-3-nonhomogeneous.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Nonhomogeneous Equations</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../notes/unit3/3-4-vibrations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Mechanical and Electrical Vibrations</span></a>
-  </div>
-</li>
-      </ul>
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">Unit 3: Linear Systems</span></span>
   </li>
         <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
- <span class="menu-text">Unit 4: Nonlinear Systems</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../notes/unit4/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Overview</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../notes/unit4/4-1-intro-nonlinear.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Introduction to Nonlinear Systems</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../notes/unit4/4-2-linearization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Equilibria and Linearization</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../notes/unit4/4-3-phase-plane.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Phase Plane Analysis of Nonlinear Systems</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../notes/unit4/4-4-bifurcations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Limit Cycles and Bifurcations</span></a>
-  </div>
-</li>
-      </ul>
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">Unit 4: Second-Order Equations</span></span>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">Unit 5: Introduction to Nonlinear Systems</span></span>
   </li>
     </ul>
     </div>
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#discussion-problem-2-qualitative-analysis." id="toc-discussion-problem-2-qualitative-analysis." class="nav-link active" data-scroll-target="#discussion-problem-2-qualitative-analysis.">Discussion Problem 2: Qualitative Analysis.</a></li>
+  <li><a href="#discussion-problem-3-numerical-analysis." id="toc-discussion-problem-3-numerical-analysis." class="nav-link" data-scroll-target="#discussion-problem-3-numerical-analysis.">Discussion Problem 3: Numerical Analysis.</a></li>
+  <li><a href="#discussion-problem-4-analytical-analysis." id="toc-discussion-problem-4-analytical-analysis." class="nav-link" data-scroll-target="#discussion-problem-4-analytical-analysis.">Discussion Problem 4: Analytical Analysis.</a></li>
+  <li><a href="#check-your-model-against-real-data." id="toc-check-your-model-against-real-data." class="nav-link" data-scroll-target="#check-your-model-against-real-data.">Check your model against real data.</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../notes/unit3/index.html">Unit 3: Second Order Linear Equations</a></li><li class="breadcrumb-item"><a href="../../notes/unit3/3-1-intro.html">Introduction to Second Order Equations</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Introduction to Second Order Equations</h1>
+<h1 class="title">Analyze the Model</h1>
 </div>
 
 
@@ -489,9 +406,128 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Content coming soon.</p>
+<p>Just like in calculus, we will use a three-pronged approach to analyze our model:</p>
+<ul>
+<li><strong>Qualitative Approach.</strong> What does the equation governing the slope of the model tell us about the properties of any solution? Can we sketch a graph of the solution? Can we determine the long-run behavior of a solution? How do the properties of a solution depend on the parameters in the model?</li>
+<li><strong>Numerical Approach.</strong> Is there a numerical method we can use to estimate the values of a solution? Can we determine error bounds for this method? How does the error or convergence of the method depend on initial values or parameters?<br>
+</li>
+<li><strong>Analytical Approach</strong> Do we know a solution exists? Given some initial state, is the solution unique? Is it possible to actually extract a formula for the model?</li>
+</ul>
+<section id="discussion-problem-2-qualitative-analysis." class="level3">
+<h3 class="anchored" data-anchor-id="discussion-problem-2-qualitative-analysis.">Discussion Problem 2: Qualitative Analysis.</h3>
+<p>We will start by analyzing it qualitatively:</p>
+<ol type="a">
+<li>Describe how the sprinter’s speed is expected to change throughout the race according to the model. Will it increase? decrease?</li>
+<li>Describe how the sprinter’s acceleration is expected to change throughout the race.</li>
+<li>Sketch a graph of <span class="math inline">\(v(t)\)</span>. What do you expect to happen to <span class="math inline">\(v(t)\)</span> in the long run, i.e.&nbsp;what is <span class="math inline">\(\lim_{t\to\infty}v(t)\)</span>? What is the practical significance of this?</li>
+</ol>
+</section>
+<section id="discussion-problem-3-numerical-analysis." class="level3">
+<h3 class="anchored" data-anchor-id="discussion-problem-3-numerical-analysis.">Discussion Problem 3: Numerical Analysis.</h3>
+<p>Next, can we use our equation to make numerical estimates for how the value of <span class="math inline">\(v(t)\)</span> will change throughout the race. Let’s assume that <span class="math inline">\(P=10\)</span> <span class="math inline">\(m\cdot s^{-2}\)</span> and <span class="math inline">\(k=0.85\)</span> s<span class="math inline">\(^{-1}\)</span> for a particular sprinter during a race. Assume that their speed, <span class="math inline">\(v\)</span>, is <span class="math inline">\(0\)</span> <span class="math inline">\(m\cdot s^{-1}\)</span> initially at <span class="math inline">\(t=0\)</span> and that for <span class="math inline">\(t\geq 0\)</span>, their speed changes according to our model.</p>
+<p>Use the information provided to determine/estimate the following values of <span class="math inline">\(v(t)\)</span> and <span class="math inline">\(v'(t)\)</span>:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><span class="math inline">\(t\)</span> (s)</th>
+<th>0</th>
+<th>2</th>
+<th>4</th>
+<th>6</th>
+<th>8</th>
+<th>10</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(v'(t)\)</span> (ms<span class="math inline">\(^{-2}\)</span>)</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(v(t)\)</span> (ms<span class="math inline">\(^{-1}\)</span>)</td>
+<td>0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="discussion-problem-4-analytical-analysis." class="level3">
+<h3 class="anchored" data-anchor-id="discussion-problem-4-analytical-analysis.">Discussion Problem 4: Analytical Analysis.</h3>
+<p>This particular model is an example of a <em>separable</em> equation. These types of equations can be solved using a technique called <em>separation of variables</em>.</p>
+<ol type="a">
+<li>After we discuss the idea, try and use this technique to solve the equation.</li>
+<li>Once you have your general solution, try and solve the <em>initial value problem</em>, where we are looking for a solution to the equation such that <span class="math inline">\(v(0)=0\)</span>.</li>
+</ol>
+</section>
+<section id="check-your-model-against-real-data." class="level2">
+<h2 class="anchored" data-anchor-id="check-your-model-against-real-data.">Check your model against real data.</h2>
+<p>In this case, we are modeling a relationship between real-world variables and so we can check how well our model performs against real data. In the 2024 Summer Olympics, <a href="https://www.youtube.com/watch?v=-HiJu8huJ9I&amp;t=18s">Julien Alfred</a> (St.&nbsp;Lucia) and <a href="https://www.youtube.com/watch?v=7Xnr805bm4E">Noah Lyles</a> (USA) won the women’s and men’s 100m races. Data from each of their final 100m races is included in the table below:</p>
+<table class="caption-top table">
+<caption>Official results for the <a href="https://olympics.com/OG2024/pdf/OG2024/ATH/OG2024_ATH_C77A_ATHW100M--------------FNL-000100--.pdf">women’s 100m final</a> and <a href="https://olympics.com/OG2024/pdf/OG2024/ATH/OG2024_ATH_C77A_ATHM100M--------------FNL-000100--.pdf">men’s 100m final</a>.</caption>
+<thead>
+<tr class="header">
+<th><span class="math inline">\(x\)</span> (m)</th>
+<th>0</th>
+<th>10</th>
+<th>20</th>
+<th>30</th>
+<th>40</th>
+<th>50</th>
+<th>60</th>
+<th>70</th>
+<th>80</th>
+<th>90</th>
+<th>100</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Alfred <span class="math inline">\(t\)</span> (s)</td>
+<td>0.14</td>
+<td>1.96</td>
+<td>3.07</td>
+<td>4.07</td>
+<td>5.03</td>
+<td>5.96</td>
+<td>6.89</td>
+<td>7.84</td>
+<td>8.78</td>
+<td>9.73</td>
+<td>10.72</td>
+</tr>
+<tr class="even">
+<td>Lyles <span class="math inline">\(t\)</span> (s)</td>
+<td>0.18</td>
+<td>1.95</td>
+<td>2.98</td>
+<td>3.90</td>
+<td>4.76</td>
+<td>5.61</td>
+<td>6.44</td>
+<td>7.26</td>
+<td>8.09</td>
+<td>8.93</td>
+<td>9.79</td>
+</tr>
+</tbody>
+</table>
+<ol type="a">
+<li>Note that each one did not immediately start running. The first recorded time is their <em>reaction time</em> <span class="math inline">\(t_0\)</span>. How can this be factored into our model?</li>
+<li>The data from the race compares distance vs.&nbsp;time. Using your answer to question 3c, find a formula for the distance a sprinter had run, <span class="math inline">\(x(t)\)</span> (in m), <span class="math inline">\(t\)</span> seconds into the race for <span class="math inline">\(t&gt;t_0\)</span>.</li>
+<li>Alfred’s reaction time was <span class="math inline">\(0.14\)</span>s and Lyles’ was <span class="math inline">\(0.18\)</span>s. Their race data has been loaded into Desmos <a href="https://www.desmos.com/calculator/zt025mreaf">here</a>. Using your general formula for <span class="math inline">\(x(t)\)</span> and the curve fitting tool in Desmos, determine the values of <span class="math inline">\(P\)</span> and <span class="math inline">\(k\)</span> that best fit the data.</li>
+</ol>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

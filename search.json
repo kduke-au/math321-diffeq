@@ -1,163 +1,98 @@
 [
   {
-    "objectID": "notes/unit4/index.html",
-    "href": "notes/unit4/index.html",
-    "title": "Unit 4 Overview",
+    "objectID": "notes/unit1/unit1_1.html",
+    "href": "notes/unit1/unit1_1.html",
+    "title": "Modeling with Differential Equations",
     "section": "",
-    "text": "Content coming soon.",
+    "text": "To introduce the course, we are going to start with an example that illustrates the process for modeling relationships between variables with differential equations. Before diving into our example, two questions need to be addressed:",
     "crumbs": [
       "Course Notes",
-      "Unit 4: Nonlinear Systems",
-      "Overview"
+      "Unit 1: Introduction & First-Order Equations",
+      "Modeling with Differential Equations"
     ]
   },
   {
-    "objectID": "notes/unit4/4-3-phase-plane.html",
-    "href": "notes/unit4/4-3-phase-plane.html",
-    "title": "Phase Plane Analysis of Nonlinear Systems",
-    "section": "",
-    "text": "Content coming soon.",
+    "objectID": "notes/unit1/unit1_1.html#what-is-a-differential-equation",
+    "href": "notes/unit1/unit1_1.html#what-is-a-differential-equation",
+    "title": "Modeling with Differential Equations",
+    "section": "What is a Differential Equation?",
+    "text": "What is a Differential Equation?\nA differential equation establishes a relationship between one or more variables and their rates of change. You are already familiar with one type of differential equation from calculus:\n\n\n\n\n\n\nNoteExample: Antiderivatives\n\n\n\nGiven a continuous function \\(f(t)\\), find all functions \\(y(t)\\) such that \\[\\frac{dy}{dt}=f(t)\\] for all \\(t\\) in some interval.\n\n\nIn your calc classes, you likely saw three techniques for finding \\(y(t)\\):\n\nQualitative Approach: Curve Sketching.\n\nSince \\(f(t)\\) shows us the slope of the \\(y(t)\\), we can deduce enough information from \\(f(t)\\) to sketch out a graph illustrating the behavior of \\(y(t)\\) like:\n\nwhere it is increasing/decreasing\nlocations of local and possibly global extrema\nconcavity and the location of points of inflection\n\n\nAlgebraic Approach: Integration Techniques.\n\nThe rules of differentiation are concrete. If we are proficient with them, we can play a fairly educated guessing and checking game to try and find \\(y(t)\\) and then check to see if it works.\nStandard integration techniques use rules for differentiation in clever ways to try and manipulate the problem into something more easily recognizable, e.g. \\(u\\)-substitution is based on the chain rule and integration by parts is based on the product rule.\n\nNumerical Approach: FTC + Riemann Sums.\n\nThe fundamental theorem of calculus tells us that a solution to this problem always exists and gives us a procedure for constructing it: \\[y(t)=C+\\int_a^t f(x)dx \\]\nIf we can’t find a “nice”1 formula for \\(y(t)\\) (i.e. some finite combination of elementary functions), we can always write out the integral formula and evaluate it using numerical techniques, like Riemann Sums.",
     "crumbs": [
       "Course Notes",
-      "Unit 4: Nonlinear Systems",
-      "Phase Plane Analysis of Nonlinear Systems"
+      "Unit 1: Introduction & First-Order Equations",
+      "Modeling with Differential Equations"
     ]
   },
   {
-    "objectID": "notes/unit4/4-1-intro-nonlinear.html",
-    "href": "notes/unit4/4-1-intro-nonlinear.html",
-    "title": "Introduction to Nonlinear Systems",
-    "section": "",
-    "text": "Content coming soon.",
+    "objectID": "notes/unit1/unit1_1.html#what-will-we-study",
+    "href": "notes/unit1/unit1_1.html#what-will-we-study",
+    "title": "Modeling with Differential Equations",
+    "section": "What will we study?",
+    "text": "What will we study?\nWhat is new in this class is that the kinds of differential equations we want to solve will depend explicitly on the dependent variable. Our focus will be on ordinary differential equations (ODEs); ODEs can involve multiple dependent variables, however, they depend only on a single independent variable, usually thought of as time.\nEquations where there are multiple independent variables (e.g. time and space) will involve partial derivatives, which is the focus of MATH-451 Partial Differential Equations (or PDEs).\nWe will start out with first-order equations, those that involve only the first-derivative, and can be written in the form:\n\n\n\n\n\n\nNoteFirst-Order Equations\n\n\n\nFind \\(y:I\\subseteq\\mathbb R\\to \\mathbb R\\) (or maybe \\(\\mathbb C\\)) such that\n\\[\\frac{dy}{dt}=f(t,y)\\] for all \\(t\\) in the interval \\(I\\).\n\n\nLater on, we will discuss first-order systems, which will involve several dependent variables, each with an equation for its derivative. We can write these systems succinctly in vector form in terms of a vector-valued function \\(\\mathbf{v}(t)\\):\n\n\n\n\n\n\nNoteFirst-Order Systems\n\n\n\nFind \\(\\mathbf{v}: I\\subseteq\\mathbb R\\to \\mathbb R^n\\) (or maybe \\(\\mathbb C^n\\)) such that \\[\\frac{d\\mathbf{v}}{dt}=f(t,\\mathbf{v})\\] for all \\(t\\) in the interval \\(I\\)\n\n\nWe will also discuss second-order equations (and maybe a few second-order systems), which involve second-derivatives in addition to first-derivatives, the dependent variables, and time:\n\n\n\n\n\n\nNoteSecond-Order Equations\n\n\n\nFind \\(y:I\\subseteq\\mathbb R \\to \\mathbb R\\) (or maybe \\(\\mathbb C\\)) such that \\[\\frac{d^2y}{dt^2}=f\\left(t,y,\\frac{dy}{dt}\\right)\\] for all \\(t\\) in the interval \\(I\\).",
     "crumbs": [
       "Course Notes",
-      "Unit 4: Nonlinear Systems",
-      "Introduction to Nonlinear Systems"
+      "Unit 1: Introduction & First-Order Equations",
+      "Modeling with Differential Equations"
     ]
   },
   {
-    "objectID": "notes/unit3/3-4-vibrations.html",
-    "href": "notes/unit3/3-4-vibrations.html",
-    "title": "Mechanical and Electrical Vibrations",
-    "section": "",
-    "text": "Content coming soon.",
+    "objectID": "notes/unit1/unit1_1.html#what-is-a-mathematical-model",
+    "href": "notes/unit1/unit1_1.html#what-is-a-mathematical-model",
+    "title": "Modeling with Differential Equations",
+    "section": "What is a Mathematical Model?",
+    "text": "What is a Mathematical Model?\nDifferential equations are interesting enough on their own. However, the reason they were discovered and continue to be an area of active research is because they provide the right mathematical framework for modeling so many different real-world relationships. The key idea is that we can start with this local property–some formula governing the rate at which the variables in our system are changing–and use it to build a global model for how the system will evolve. This allows us to make predictions, weigh and compare decisions, simulate experiments, and try to discover properties that may otherwise be difficult or costly to observe.\nThis semester, we will frequently use the goal of modeling to help motivate the mathematical concepts involved with analyzing and solving differential equation. Our first example will walk us through the steps involved:\n\nCreate the Model.\nAnalyze the Model.\nInterpret the Model.\n\nWe will use our first example to help us walk through this process step-by-step in order to get a better feel for what is involved.",
     "crumbs": [
       "Course Notes",
-      "Unit 3: Second Order Linear Equations",
-      "Mechanical and Electrical Vibrations"
+      "Unit 1: Introduction & First-Order Equations",
+      "Modeling with Differential Equations"
     ]
   },
   {
-    "objectID": "notes/unit3/3-2-homogeneous.html",
-    "href": "notes/unit3/3-2-homogeneous.html",
-    "title": "Homogeneous Equations",
-    "section": "",
-    "text": "Content coming soon.",
+    "objectID": "notes/unit1/unit1_1.html#step-1-creating-the-model",
+    "href": "notes/unit1/unit1_1.html#step-1-creating-the-model",
+    "title": "Modeling with Differential Equations",
+    "section": "Step 1: Creating the Model",
+    "text": "Step 1: Creating the Model\n\nAsk & Observe\nCreating a model starts with a question. What is it that you want to understand better? Identify the variables of interest. Make observations and/or collect data to begin to think about what governs the rates at which these quantities change.\n\n\nMake Assumptions\nIt will usually be impossible to create a perfect mathematical representation of the relationship we are interested in exploring. Even if we could, it will likely be too complex with too many variables to be able to extract something useful when we analyze it.\nSo, before writing down our equation or system of equations, we will need to make some simplifying assumptions. The simpler the equation, the easier it is to analyze, but we likely will also take away less from the analysis that we can use to address our motivating questions.\nIn most cases, the best approach is to start with an oversimplified model, and then slowly make it more complex and realistic until you reach your mathematical breaking point.\n\n\nState Clearly\nState your motivating questions and the assumptions you are making. Write out the resulting differential equation, clearly defining all variables and parameters that are being used.",
     "crumbs": [
       "Course Notes",
-      "Unit 3: Second Order Linear Equations",
-      "Homogeneous Equations"
+      "Unit 1: Introduction & First-Order Equations",
+      "Modeling with Differential Equations"
     ]
   },
   {
-    "objectID": "notes/unit2/index.html",
-    "href": "notes/unit2/index.html",
-    "title": "Unit 2 Overview",
-    "section": "",
-    "text": "Content coming soon.",
+    "objectID": "notes/unit1/unit1_1.html#example-sprint-speed.",
+    "href": "notes/unit1/unit1_1.html#example-sprint-speed.",
+    "title": "Modeling with Differential Equations",
+    "section": "Example: Sprint Speed.",
+    "text": "Example: Sprint Speed.\nOur first example is to create a model for how a sprinter’s speed increases throughout a 100m race. Reasons why we may be interested in this:\n\nTo understand the human physiology of track athletes better\nInsight on what training improvements to target to improve sprinter performance\n\n\nAssumptions\nIn this scenario, our assumptions are:\n\nEach sprinter’s acceleration \\(a\\) at any moment in time is determined by their mass \\(m\\) and the net horizontal force acting on them \\(F\\) by Newton’s second law of motion.\nThe net horizontal force \\(F\\) is the difference between a sprinter’s intrinsic propulsive force \\(F_p\\) and a resistive force \\(F_r\\).\nThe intrinsic propulsive force \\(F_P\\) is constant. It is determined by their mass and the raw acceleration \\(P\\) they could theoretically achieve under maximum effort and in the absence of resistive forces.\nThe resistive force \\(F_R\\) opposes the sprinter’s motion. We would expect that the resistive force would increase with the runner’s speed \\(v\\) and mass. Let’s assume the resistive force is proportional to both of these quantities; let \\(k\\) represent this proportionality constant.\n\n\n\nDiscussion Problem 1: Create the model.\n\nWith these assumptions, write down an equation modeling the relationship between a sprinter’s acceleration and their speed during a race.\nIdentify and define any independent variables, dependent variables, and parameters in the model. Are we making any assumptions about the values of the parameters or variables in our model?\nIf mass is measured in kilograms (kg), distance in meters (m), and time in seconds (s), what units would make sense for the parameters/variables in the model?",
     "crumbs": [
       "Course Notes",
-      "Unit 2: Systems of Linear Equations",
-      "Overview"
+      "Unit 1: Introduction & First-Order Equations",
+      "Modeling with Differential Equations"
     ]
   },
   {
-    "objectID": "notes/unit2/2-3-phase-plane.html",
-    "href": "notes/unit2/2-3-phase-plane.html",
-    "title": "Phase Plane Analysis",
-    "section": "",
-    "text": "Content coming soon.",
+    "objectID": "notes/unit1/unit1_1.html#footnotes",
+    "href": "notes/unit1/unit1_1.html#footnotes",
+    "title": "Modeling with Differential Equations",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nDisclaimer: I think integral formulas like the FTC are pretty nice.↩︎",
     "crumbs": [
       "Course Notes",
-      "Unit 2: Systems of Linear Equations",
-      "Phase Plane Analysis"
+      "Unit 1: Introduction & First-Order Equations",
+      "Modeling with Differential Equations"
     ]
   },
   {
-    "objectID": "notes/unit2/2-1-intro-systems.html",
-    "href": "notes/unit2/2-1-intro-systems.html",
-    "title": "Introduction to Systems",
+    "objectID": "notes/index.html",
+    "href": "notes/index.html",
+    "title": "Course Notes",
     "section": "",
-    "text": "Content coming soon.",
+    "text": "These notes will reflect our in-class discussions this semester. Use them alongside our text:\n\nDifferential Equations by Blanchard, Devaney, and Hall, 4th ed.\n\nas we work through the material.\nThey will be updated frequently, before and after class, and I will try to add in answers or hints to the discussion problems after we have had a chance to work through them together.\nIf you have any questions or would like to see something explained in more detail, let me know and I will include it here.",
     "crumbs": [
       "Course Notes",
-      "Unit 2: Systems of Linear Equations",
-      "Introduction to Systems"
+      "Home"
     ]
-  },
-  {
-    "objectID": "notes/unit1/1-5-euler.html",
-    "href": "notes/unit1/1-5-euler.html",
-    "title": "Numerical Methods: Eulers Method",
-    "section": "",
-    "text": "Content coming soon.",
-    "crumbs": [
-      "Course Notes",
-      "Unit 1: Introduction & First Order Equations",
-      "Numerical Methods: Euler's Method"
-    ]
-  },
-  {
-    "objectID": "notes/unit1/1-3-separation.html",
-    "href": "notes/unit1/1-3-separation.html",
-    "title": "Analytic Solutions: Separation of Variables",
-    "section": "",
-    "text": "Content coming soon.",
-    "crumbs": [
-      "Course Notes",
-      "Unit 1: Introduction & First Order Equations",
-      "Analytic Solutions: Separation of Variables"
-    ]
-  },
-  {
-    "objectID": "notes/unit1/1-1-intro.html",
-    "href": "notes/unit1/1-1-intro.html",
-    "title": "Introduction to Differential Equations",
-    "section": "",
-    "text": "Content coming soon.",
-    "crumbs": [
-      "Course Notes",
-      "Unit 1: Introduction & First Order Equations",
-      "Introduction to Differential Equations"
-    ]
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Math 321 – Differential Equations",
-    "section": "",
-    "text": "Add your course introduction text here.\n\n\n\n\n\n\n\n\n\nThis is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
-  },
-  {
-    "objectID": "index.html#welcome",
-    "href": "index.html#welcome",
-    "title": "Math 321 – Differential Equations",
-    "section": "",
-    "text": "Add your course introduction text here.\n\n\n\n\n\n\n\n\n\nThis is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
-  },
-  {
-    "objectID": "drafts/lorenz_animation.html",
-    "href": "drafts/lorenz_animation.html",
-    "title": "Math 321 - Differential Equations",
-    "section": "",
-    "text": "Add your homepage introduction text here."
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "About this site"
   },
   {
     "objectID": "drafts/lorenz_interactive.html",
@@ -181,145 +116,36 @@
     "text": "The Lorenz System\nThe curve below traces a solution to the Lorenz system:\n\\[\n\\frac{dx}{dt} = \\sigma(y - x), \\qquad\n\\frac{dy}{dt} = x(\\rho - z) - y, \\qquad\n\\frac{dz}{dt} = xy - \\beta z\n\\]\nSet the parameters and initial condition, then press start to trace the solution. Drag to rotate; scroll to zoom. Press stop at any time to explore the curve, then start again to continue. Reset clears the curve and unlocks the sliders.\n\n\n\n  \n\n  Select Parameters:\n  \n    σ (sigma)10.0\n    ρ (rho)28.0\n    β (beta)2.7\n  \n\n  Select Initial Condition:\n  \n    x₀1.0\n    y₀1.0\n    z₀10.0\n    \n      start\n      stop\n      reset\n    \n  \n\n  \n    solution curve\n    initial condition\n    current position\n    fixed points\n  \n  drag to rotate · scroll to zoom · sliders lock while animating\n\n\n\nClassic parameters: σ = 10, ρ = 28, β = 8/3 ≈ 2.7. Try reducing ρ below 24.74 — the chaos disappears and solutions settle onto one of the fixed points."
   },
   {
-    "objectID": "notes/index.html",
-    "href": "notes/index.html",
-    "title": "Course Notes",
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
     "section": "",
-    "text": "The curve below traces a solution to the Lorenz system:\n\\[\n\\frac{dx}{dt} = \\sigma(y - x), \\qquad\n\\frac{dy}{dt} = x(\\rho - z) - y, \\qquad\n\\frac{dz}{dt} = xy - \\beta z\n\\]\nSet the parameters and initial condition, then press start to trace the solution. Drag to rotate; scroll to zoom. Press stop at any time to explore the curve, then start again to continue. Reset clears the curve and unlocks the sliders.\n\n\n\n  \n\n  Select Parameters:\n  \n    σ (sigma)10.0\n    ρ (rho)28.0\n    β (beta)2.7\n  \n\n  Select Initial Condition:\n  \n    x₀1.0\n    y₀1.0\n    z₀10.0\n    \n      start\n      stop\n      reset\n    \n  \n\n  \n    solution curve\n    initial condition\n    current position\n    fixed points\n  \n  drag to rotate · scroll to zoom · sliders lock while animating\n\n\n\nClassic parameters: σ = 10, ρ = 28, β = 8/3 ≈ 2.7. Try reducing ρ below 24.74 — the chaos disappears and solutions settle onto one of the fixed points.",
-    "crumbs": [
-      "Course Notes",
-      "Home"
-    ]
+    "text": "About this site"
   },
   {
-    "objectID": "notes/index.html#the-lorenz-system",
-    "href": "notes/index.html#the-lorenz-system",
-    "title": "Course Notes",
+    "objectID": "drafts/lorenz_animation.html",
+    "href": "drafts/lorenz_animation.html",
+    "title": "Math 321 - Differential Equations",
     "section": "",
-    "text": "The curve below traces a solution to the Lorenz system:\n\\[\n\\frac{dx}{dt} = \\sigma(y - x), \\qquad\n\\frac{dy}{dt} = x(\\rho - z) - y, \\qquad\n\\frac{dz}{dt} = xy - \\beta z\n\\]\nSet the parameters and initial condition, then press start to trace the solution. Drag to rotate; scroll to zoom. Press stop at any time to explore the curve, then start again to continue. Reset clears the curve and unlocks the sliders.\n\n\n\n  \n\n  Select Parameters:\n  \n    σ (sigma)10.0\n    ρ (rho)28.0\n    β (beta)2.7\n  \n\n  Select Initial Condition:\n  \n    x₀1.0\n    y₀1.0\n    z₀10.0\n    \n      start\n      stop\n      reset\n    \n  \n\n  \n    solution curve\n    initial condition\n    current position\n    fixed points\n  \n  drag to rotate · scroll to zoom · sliders lock while animating\n\n\n\nClassic parameters: σ = 10, ρ = 28, β = 8/3 ≈ 2.7. Try reducing ρ below 24.74 — the chaos disappears and solutions settle onto one of the fixed points.",
-    "crumbs": [
-      "Course Notes",
-      "Home"
-    ]
+    "text": "Add your homepage introduction text here."
   },
   {
-    "objectID": "notes/unit1/1-2-modeling.html",
-    "href": "notes/unit1/1-2-modeling.html",
-    "title": "Modeling with Differential Equations",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Welcome!",
     "section": "",
-    "text": "Content coming soon.",
-    "crumbs": [
-      "Course Notes",
-      "Unit 1: Introduction & First Order Equations",
-      "Modeling with Differential Equations"
-    ]
-  },
-  {
-    "objectID": "notes/unit1/1-4-slope-fields.html",
-    "href": "notes/unit1/1-4-slope-fields.html",
-    "title": "Qualitative Analysis: Slope Fields",
-    "section": "",
-    "text": "Content coming soon.",
-    "crumbs": [
-      "Course Notes",
-      "Unit 1: Introduction & First Order Equations",
-      "Qualitative Analysis: Slope Fields"
-    ]
+    "text": "This website contains course notes and other materials for MATH-321 Differential Equations at American University for the Fall 2026 semester.\n\n\n\n\n\n\n\nA solution trajectory for the Lorenz System; drag to rotate."
   },
   {
     "objectID": "notes/unit1/index.html",
     "href": "notes/unit1/index.html",
-    "title": "Unit 1 Overview",
+    "title": "First Order Equations",
     "section": "",
-    "text": "Content coming soon.",
+    "text": "Our first unit covers chapter 1 of our textbook, along with some topics from sections 7.1-3 and Appendices A and B.\nKey Ideas:\n\nBasic terminology associated with differential equations\nUsing differential equations to model relationships between variables\nThree main approaches to analyzing differential equations: qualitative, numerical, and analytical\n\nQualitative approach for first-order equations:\n\nSlope fields and Phase lines\nEquilibria, stability, and bifurcation diagrams.\n\nNumerical approach for first-order equations:\n\nEuler’s method\nError & improvements on Euler’s method (Improved Euler’s method, Runge-Kutta)\n\nAnalytical approach for first-order equations:\n\nExistence and uniqueness criteria\nSeparation of variables\nIntegrating factors\nChange of variables, power series, other techniques as time allows",
     "crumbs": [
       "Course Notes",
-      "Unit 1: Introduction & First Order Equations",
+      "Unit 1: Introduction & First-Order Equations",
       "Overview"
-    ]
-  },
-  {
-    "objectID": "notes/unit2/2-2-eigenvalues.html",
-    "href": "notes/unit2/2-2-eigenvalues.html",
-    "title": "Linear Systems and Eigenvalues",
-    "section": "",
-    "text": "Content coming soon.",
-    "crumbs": [
-      "Course Notes",
-      "Unit 2: Systems of Linear Equations",
-      "Linear Systems and Eigenvalues"
-    ]
-  },
-  {
-    "objectID": "notes/unit2/2-4-stability.html",
-    "href": "notes/unit2/2-4-stability.html",
-    "title": "Solution Structure and Stability",
-    "section": "",
-    "text": "Content coming soon.",
-    "crumbs": [
-      "Course Notes",
-      "Unit 2: Systems of Linear Equations",
-      "Solution Structure and Stability"
-    ]
-  },
-  {
-    "objectID": "notes/unit3/3-1-intro.html",
-    "href": "notes/unit3/3-1-intro.html",
-    "title": "Introduction to Second Order Equations",
-    "section": "",
-    "text": "Content coming soon.",
-    "crumbs": [
-      "Course Notes",
-      "Unit 3: Second Order Linear Equations",
-      "Introduction to Second Order Equations"
-    ]
-  },
-  {
-    "objectID": "notes/unit3/3-3-nonhomogeneous.html",
-    "href": "notes/unit3/3-3-nonhomogeneous.html",
-    "title": "Nonhomogeneous Equations",
-    "section": "",
-    "text": "Content coming soon.",
-    "crumbs": [
-      "Course Notes",
-      "Unit 3: Second Order Linear Equations",
-      "Nonhomogeneous Equations"
-    ]
-  },
-  {
-    "objectID": "notes/unit3/index.html",
-    "href": "notes/unit3/index.html",
-    "title": "Unit 3 Overview",
-    "section": "",
-    "text": "Content coming soon.",
-    "crumbs": [
-      "Course Notes",
-      "Unit 3: Second Order Linear Equations",
-      "Overview"
-    ]
-  },
-  {
-    "objectID": "notes/unit4/4-2-linearization.html",
-    "href": "notes/unit4/4-2-linearization.html",
-    "title": "Equilibria and Linearization",
-    "section": "",
-    "text": "Content coming soon.",
-    "crumbs": [
-      "Course Notes",
-      "Unit 4: Nonlinear Systems",
-      "Equilibria and Linearization"
-    ]
-  },
-  {
-    "objectID": "notes/unit4/4-4-bifurcations.html",
-    "href": "notes/unit4/4-4-bifurcations.html",
-    "title": "Limit Cycles and Bifurcations",
-    "section": "",
-    "text": "Content coming soon.",
-    "crumbs": [
-      "Course Notes",
-      "Unit 4: Nonlinear Systems",
-      "Limit Cycles and Bifurcations"
     ]
   }
 ]
