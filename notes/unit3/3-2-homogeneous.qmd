@@ -1,6 +1,0 @@
----
-title: 'Homogeneous Equations'
-sidebar: notes
----
-
-Content coming soon.

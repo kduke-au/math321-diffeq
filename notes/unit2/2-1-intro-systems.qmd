@@ -1,6 +1,0 @@
----
-title: 'Introduction to Systems'
-sidebar: notes
----
-
-Content coming soon.

@@ -1,0 +1,122 @@
+---
+title: 'Modeling with Differential Equations'
+subtitle: 'Introduction'
+sidebar: notes
+--- 
+To introduce the course, we are going to start with an example that illustrates the process for modeling relationships between variables with differential equations. Before diving into our example, two questions need to be addressed:
+
+## What is a Differential Equation?
+A *differential equation* establishes a relationship between one or more variables and their rates of change. You are already familiar with one type of differential equation from calculus:
+
+::: {.callout-note appearance="minimal" icon=false}
+### Example: Antiderivatives
+
+Given a continuous function $f(t)$, find all functions $y(t)$ such that $$\frac{dy}{dt}=f(t)$$ for all $t$ in some interval.
+:::
+
+In your calc classes, you likely saw three techniques for finding $y(t)$:
+
+1. **Qualitative Approach: Curve Sketching.** 
+
+Since $f(t)$ shows us the *slope* of the $y(t)$, we can deduce enough information from $f(t)$ to sketch out a graph illustrating the behavior of $y(t)$ like:
+
+
+- where it is increasing/decreasing
+- locations of local and possibly global extrema
+- concavity and the location of points of inflection
+
+2. **Algebraic Approach: Integration Techniques.** 
+
+The rules of differentiation are concrete. If we are proficient with them, we can play a fairly educated guessing and checking game to try and find $y(t)$ and then check to see if it works. 
+
+Standard integration techniques use rules for differentiation in clever ways to try and manipulate the problem into something more easily recognizable, e.g. $u$-substitution is based on the chain rule and integration by parts is based on the product rule.
+
+3. **Numerical Approach: FTC + Riemann Sums.** 
+
+The fundamental theorem of calculus tells us that a solution to this problem *always* exists and gives us a procedure for constructing it:
+$$y(t)=C+\int_a^t f(x)dx $$  
+
+If we can't find a "nice"^[Disclaimer: I think integral formulas like the FTC are pretty nice.] formula for $y(t)$ (i.e. some finite combination of elementary functions), we can always write out the integral formula and evaluate it using numerical techniques, like Riemann Sums.
+
+## What will we study?
+
+What is new in this class is that the kinds of differential equations we want to solve will depend explicitly on the dependent variable. Our focus will be on *ordinary* differential equations (ODEs); ODEs can involve multiple dependent variables, however, they depend only on a single independent variable, usually thought of as *time*.
+
+Equations where there are multiple independent variables (e.g. time and *space*) will involve partial derivatives, which is the focus of MATH-451 Partial Differential Equations (or PDEs).
+
+We will start out with *first-order* equations, those that involve only the first-derivative, and can be written in the form:
+
+::: {.callout-note appearance="minimal" icon=false}
+### First-Order Equations
+Find $y:I\subseteq\mathbb R\to \mathbb R$ (or maybe $\mathbb C$) such that 
+
+$$\frac{dy}{dt}=f(t,y)$$ for all $t$ in the interval $I$. 
+:::
+
+Later on, we will discuss first-order *systems*, which will involve several dependent variables, each with an equation for its derivative. We can write these systems succinctly in *vector form* in terms of a vector-valued function $\mathbf{v}(t)$:
+
+::: {.callout-note appearance="minimal" icon=false}
+### First-Order Systems
+
+Find $\mathbf{v}: I\subseteq\mathbb R\to \mathbb R^n$ (or maybe $\mathbb C^n$) such that $$\frac{d\mathbf{v}}{dt}=f(t,\mathbf{v})$$ for all $t$ in the interval $I$ 
+:::
+
+We will also discuss *second*-order equations (and maybe a few second-order systems), which involve second-derivatives in addition to first-derivatives, the dependent variables, and time: 
+
+::: {.callout-note appearance="minimal" icon=false}
+### Second-Order Equations
+Find $y:I\subseteq\mathbb R \to \mathbb R$ (or maybe $\mathbb C$) such that
+$$\frac{d^2y}{dt^2}=f\left(t,y,\frac{dy}{dt}\right)$$ for all $t$ in the interval $I$.
+:::
+
+## What is a Mathematical Model?
+
+Differential equations are interesting enough on their own. However, the reason they were discovered and continue to be an area of active research is because they provide the right mathematical framework for modeling so many different real-world relationships. The key idea is that we can start with this *local* property--some formula governing the rate at which the variables in our system are changing--and use it to build a *global* model for how the system will evolve. This allows us to make predictions, weigh and compare decisions, simulate experiments, and try to discover properties that may otherwise be difficult or costly to observe.
+
+
+This semester, we will frequently use the goal of modeling to help motivate the mathematical concepts involved with analyzing and solving differential equation. Our first example will walk us through the steps involved:
+
+1. Create the Model.
+2. Analyze the Model.
+3. Interpret the Model.
+
+We will use our first example to help us walk through this process step-by-step in order to get a better feel for what is involved.
+
+## Step 1: Creating the Model 
+
+#### Ask & Observe
+
+Creating a model starts with a question. What is it that you want to understand better? Identify the variables of interest. Make observations and/or collect data to begin to think about what governs the rates at which these quantities change.
+
+#### Make Assumptions
+
+It will usually be impossible to create a perfect mathematical representation of the relationship we are interested in exploring. Even if we could, it will likely be too complex with too many variables to be able to extract something useful when we analyze it.
+
+So, before writing down our equation or system of equations, we will need to make some simplifying assumptions. The simpler the equation, the easier it is to analyze, but we likely will also take away less from the analysis that we can use to address our motivating questions. 
+
+In most cases, the best approach is to start with an oversimplified model, and then slowly make it more complex and realistic until you reach your mathematical breaking point.
+
+#### State Clearly
+
+State your motivating questions and the assumptions you are making. Write out the resulting differential equation, clearly defining all variables and parameters that are being used.
+
+## Example: Sprint Speed.
+Our first example is to create a model for how a sprinter's speed increases throughout a 100m race. Reasons why we may be interested in this:
+
+- To understand the human physiology of track athletes better
+- Insight on what training improvements to target to improve sprinter performance 
+
+### Assumptions
+In this scenario, our assumptions are:
+
+1. Each sprinter's acceleration $a$ at any moment in time is determined by their mass $m$ and the net horizontal force acting on them $F$ by Newton's second law of motion.
+2. The net horizontal force $F$ is the difference between a sprinter's intrinsic propulsive force $F_p$ and a resistive force $F_r$.
+3. The intrinsic propulsive force $F_P$ is constant. It is determined by their mass and the raw acceleration $P$ they could theoretically achieve under maximum effort and in the absence of resistive forces.
+4. The resistive force $F_R$ opposes the sprinter's motion. We would expect that the resistive force would increase with the runner's speed $v$ and mass. Let's assume the resistive force is proportional to both of these quantities; let $k$ represent this proportionality constant.
+
+### Discussion Problem 1: Create the model.
+a. With these assumptions, write down an equation modeling the relationship between a sprinter's acceleration and their speed during a race. 
+b. Identify and define any independent variables, dependent variables, and parameters in the model. Are we making any assumptions about the values of the parameters or variables in our model?
+c. If mass is measured in kilograms (kg), distance in meters (m), and time in seconds (s), what units would make sense for the parameters/variables in the model?
+
+

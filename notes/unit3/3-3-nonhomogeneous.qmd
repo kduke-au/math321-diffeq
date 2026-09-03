@@ -1,6 +1,0 @@
----
-title: 'Nonhomogeneous Equations'
-sidebar: notes
----
-
-Content coming soon.

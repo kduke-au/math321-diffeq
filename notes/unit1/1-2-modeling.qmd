@@ -1,6 +1,0 @@
----
-title: 'Modeling with Differential Equations'
-sidebar: notes
----
-
-Content coming soon.

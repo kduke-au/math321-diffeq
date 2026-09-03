@@ -1,14 +1,12 @@
 ---
-title: "Math 321 – Differential Equations"
+title: "Welcome!"
 toc: false
 sidebar: false
 ---
-
-## Welcome
-
-*Add your course introduction text here.*
+This website contains [course notes](notes/index.qmd) and other materials for MATH-321 Differential Equations at American University for the Fall 2026 semester. 
 
 ---
+::: {#lorenz-vis}
 
 ```{=html}
 <style>
@@ -20,6 +18,7 @@ sidebar: false
 <div id="lz-home">
 <canvas id="lhc"></canvas>
 </div>
+<p class="figure-caption" style="margin-top: -1rem;">A solution trajectory for the <em>Lorenz System</em>; drag to rotate.</p>
 
 <script>
 (function(){
@@ -229,8 +228,5 @@ window.addEventListener('touchmove',e=>{
 })();
 </script>
 ```
----
 
-This is a Quarto website.
-
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+:::

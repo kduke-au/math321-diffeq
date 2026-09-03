@@ -1,6 +1,0 @@
----
-title: 'Analytic Solutions: Separation of Variables'
-sidebar: notes
----
-
-Content coming soon.

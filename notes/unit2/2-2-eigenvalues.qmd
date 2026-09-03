@@ -1,6 +1,0 @@
----
-title: 'Linear Systems and Eigenvalues'
-sidebar: notes
----
-
-Content coming soon.

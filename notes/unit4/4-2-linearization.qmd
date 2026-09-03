@@ -1,6 +1,0 @@
----
-title: 'Equilibria and Linearization'
-sidebar: notes
----
-
-Content coming soon.

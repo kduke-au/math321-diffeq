@@ -1,6 +1,22 @@
 ---
-title: 'Unit 1 Overview'
+title: 'First Order Equations'
 sidebar: notes
 ---
+Our first unit covers chapter 1 of our textbook, along with some topics from sections 7.1-3 and Appendices A and B. 
 
-Content coming soon.
+Key Ideas:
+
+- Basic terminology associated with differential equations
+- Using differential equations to model relationships between variables
+- Three main approaches to analyzing differential equations: qualitative, numerical, and analytical
+    - Qualitative approach for first-order equations:
+        - Slope fields and Phase lines
+        - Equilibria, stability, and bifurcation diagrams.
+    - Numerical approach for first-order equations:
+        - Euler's method
+        - Error & improvements on Euler's method (Improved Euler's method, Runge-Kutta)
+    - Analytical approach for first-order equations:
+        - Existence and uniqueness criteria
+        - Separation of variables
+        - Integrating factors
+        - Change of variables, power series, other techniques as time allows

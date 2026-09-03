@@ -1,0 +1,10 @@
+---
+title: 'Interpret the Model'
+sidebar: notes
+--- 
+
+5. **Interpret the Results.**
+
+The results of your mathematical analysis ultimately have to reframed in the context of your model. What did you learn? How does it relate to your motivating questions? Do your assumptions place any limitations on what you can reasonably take away from your analysis? 
+
+If possible, compare how well your model fits real data. What can you learn from any discrepancies and how can you use this information to make your model better?  

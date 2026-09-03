@@ -1,6 +1,0 @@
----
-title: 'Introduction to Second Order Equations'
-sidebar: notes
----
-
-Content coming soon.
