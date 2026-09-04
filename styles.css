@@ -6,6 +6,12 @@
   margin-left: 0.5rem;
 }
 
+.step-label {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-top: 1rem;
+}
+
 /* Changing colors for highlighting links
 
 a {

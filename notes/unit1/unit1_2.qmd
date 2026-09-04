@@ -1,23 +1,49 @@
 ---
-title: 'Analyze the Model'
+title: 'Analyze & Interpret the Model'
+subtitle: Read Sections 1.2-4
 sidebar: notes
 --- 
+Once we have converted our question into a clearly stated, well-defined math problem, we can begin to analyze it.
 
-
-Just like in calculus, we will use a three-pronged approach to analyze our model:
+## Step 2: Analyze the Model
+Just like in calculus, we use a three-pronged approach to analyze differential equations:
 
 - **Qualitative Approach.** What does the equation governing the slope of the model tell us about the properties of any solution? Can we sketch a graph of the solution? Can we determine the long-run behavior of a solution? How do the properties of a solution depend on the parameters in the model?
 - **Numerical Approach.** Is there a numerical method we can use to estimate the values of a solution? Can we determine error bounds for this method? How does the error or convergence of the method depend on initial values or parameters?   
-- **Analytical Approach** Do we know a solution exists? Given some initial state, is the solution unique? Is it possible to actually extract a formula for the model?
+- **Analytical Approach.** Do we know a solution exists? Given some initial state, is the solution unique? Is it possible to actually extract a formula for the model?
 
-### Discussion Problem 2: Qualitative Analysis.
+## Example: Sprint Speed Continued
+
+Recall that our model for a sprinter's speed throughout a 100m race is given by: $$m\frac{dv}{dt}=mP-kmv$$
+where $m$ is the sprinter's mass (in kg), $P$ represents the max effort acceleration a sprinter can achieve (in m/s$^2$), and $k$ is the proportionality constant for the resistive force (in s$^{-1}$). 
+
+### Discussion Problem 1: Qualitative Analysis.
 We will start by analyzing it qualitatively: 
 
 a. Describe how the sprinter's speed is expected to change throughout the race according to the model. Will it increase? decrease?
 b. Describe how the sprinter's acceleration is expected to change throughout the race.
-c. Sketch a graph of $v(t)$. What do you expect to happen to $v(t)$ in the long run, i.e. what is $\lim_{t\to\infty}v(t)$? What is the practical significance of this?
+c. Sketch a graph of $v(t)$. What do you expect to happen to $v(t)$ in the long run, i.e. what is $$\lim_{t\to\infty}v(t)?$$ What is the practical significance of this?
 
-### Discussion Problem 3: Numerical Analysis.
+:::{.callout-tip collapse="true" icon=false}
+### Answer:
+First, it helps to simplify the differential equation by dividing through by mass: $$\frac{dv}{dt}=P-kv$$
+
+a. Note that $\frac{dv}{dt}=0$ when $v=\frac{P}{k}$. So, that means if the sprinter is ever going at this speed, they will stay at this speed for all time. A constant solution to a differential equation, like this one, is called a *equilibrium solution*.  
+
+    If $v>\frac{P}{k}$, then $\frac{dv}{dt}<0$, and so at this speed, their speed will decrease.
+
+    If $v<\frac{P}{k}$, then $\frac{dv}{dt}>0$, and so at this speed, their speed will increase.
+
+    In context, their speed at the beginning of the race will be 0 and so this is telling us that their speed should *increase* throughout the race according to the model.
+
+b. If $v$ is increasing throughout the race, then their acceleration $$\frac{dv}{dt}=P-kv$$ will *decrease*.
+
+c. [Here is a "sketch" of a solution using a *slope* or *direction field*.](https://www.geogebra.org/calculator/av9pd2xr) 
+What this tells us is that as the race goes on, the runner's speed will approach a threshold of $P/k$. 
+:::
+
+
+### Discussion Problem 2: Numerical Analysis.
 Next, can we use our equation to make numerical estimates for how the value of $v(t)$ will change throughout the race. Let's assume that $P=10$ $m\cdot s^{-2}$ and $k=0.85$ s$^{-1}$ for a particular sprinter during a race. Assume that their speed, $v$, is $0$ $m\cdot s^{-1}$ initially at $t=0$ and that for $t\geq 0$, their speed changes according to our model.
 
 Use the information provided to determine/estimate the following values of $v(t)$ and $v'(t)$:
@@ -27,14 +53,21 @@ Use the information provided to determine/estimate the following values of $v(t)
 | $v'(t)$ (ms$^{-2}$) | | | | | | |
 | $v(t)$ (ms$^{-1}$) | 0 | | | | | |
 
-### Discussion Problem 4: Analytical Analysis.
+### Discussion Problem 3: Analytical Analysis.
 This particular model is an example of a *separable* equation. These types of equations can be solved using a technique called *separation of variables*. 
 
 a. After we discuss the idea, try and use this technique to solve the equation. 
 b. Once you have your general solution, try and solve the *initial value problem*, where we are looking for a solution to the equation such that $v(0)=0$.
 
+## Step 3: Interpret the Model
 
-## Check your model against real data.
+The results of your mathematical analysis ultimately have to be reframed in the context of your model. What did you learn? How does it relate to your motivating questions? Do your assumptions place any limitations on what you can reasonably take away from your analysis? 
+
+If possible, compare how well your model fits real data. What can you learn from any discrepancies and how can you use this information to make your model better?  
+
+## Example: Sprint Speed Conclusion
+
+### Discussion Problem 4: Check your model against real data.
 
 In this case, we are modeling a relationship between real-world variables and so we can check how well our model performs against real data. In the 2024 Summer Olympics, [Julien Alfred](https://www.youtube.com/watch?v=-HiJu8huJ9I&t=18s) (St. Lucia) and [Noah Lyles](https://www.youtube.com/watch?v=7Xnr805bm4E) (USA) won the women's and men's 100m races. Data from each of their final 100m races is included in the table below:
 
@@ -48,5 +81,5 @@ In this case, we are modeling a relationship between real-world variables and so
 
 
 a. Note that each one did not immediately start running. The first recorded time is their *reaction time* $t_0$. How can this be factored into our model?
-b. The data from the race compares distance vs. time. Using your answer to question 3c, find a formula for the distance a sprinter had run, $x(t)$ (in m), $t$ seconds into the race for $t>t_0$.
+b. The data from the race compares distance vs. time. Using your answer to Problem 3b, find a formula for the distance a sprinter had run, $x(t)$ (in m), $t$ seconds into the race for $t>t_0$.
 c. Alfred's reaction time was $0.14$s and Lyles' was $0.18$s. Their race data has been loaded into Desmos [here](https://www.desmos.com/calculator/zt025mreaf). Using your general formula for $x(t)$ and the curve fitting tool in Desmos, determine the values of $P$ and $k$ that best fit the data.
