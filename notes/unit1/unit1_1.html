@@ -342,11 +342,11 @@ window.Quarto = {
   </div>
 </li>
           <li class="sidebar-item">
- <span class="menu-text">Analyze the Model</span>
-  </li>
-          <li class="sidebar-item">
- <span class="menu-text">Interpret the Model</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="../../notes/unit1/unit1_2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Analyze &amp; Interpret the Model</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -379,10 +379,10 @@ window.Quarto = {
   <li><a href="#what-will-we-study" id="toc-what-will-we-study" class="nav-link" data-scroll-target="#what-will-we-study">What will we study?</a></li>
   <li><a href="#what-is-a-mathematical-model" id="toc-what-is-a-mathematical-model" class="nav-link" data-scroll-target="#what-is-a-mathematical-model">What is a Mathematical Model?</a></li>
   <li><a href="#step-1-creating-the-model" id="toc-step-1-creating-the-model" class="nav-link" data-scroll-target="#step-1-creating-the-model">Step 1: Creating the Model</a></li>
-  <li><a href="#example-sprint-speed." id="toc-example-sprint-speed." class="nav-link" data-scroll-target="#example-sprint-speed.">Example: Sprint Speed.</a>
+  <li><a href="#example-sprint-speed" id="toc-example-sprint-speed" class="nav-link" data-scroll-target="#example-sprint-speed">Example: Sprint Speed</a>
   <ul class="collapse">
   <li><a href="#assumptions" id="toc-assumptions" class="nav-link" data-scroll-target="#assumptions">Assumptions</a></li>
-  <li><a href="#discussion-problem-1-create-the-model." id="toc-discussion-problem-1-create-the-model." class="nav-link" data-scroll-target="#discussion-problem-1-create-the-model.">Discussion Problem 1: Create the model.</a></li>
+  <li><a href="#discussion-problem-1-create-the-model" id="toc-discussion-problem-1-create-the-model" class="nav-link" data-scroll-target="#discussion-problem-1-create-the-model">Discussion Problem 1: Create the model</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -394,7 +394,7 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../notes/unit1/index.html">Unit 1: Introduction &amp; First-Order Equations</a></li><li class="breadcrumb-item"><a href="../../notes/unit1/unit1_1.html">Modeling with Differential Equations</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Modeling with Differential Equations</h1>
-<p class="subtitle lead">Introduction</p>
+<p class="subtitle lead">Introduction - Read Section 1.1</p>
 </div>
 
 
@@ -432,7 +432,7 @@ window.Quarto = {
 <ol type="1">
 <li><strong>Qualitative Approach: Curve Sketching.</strong></li>
 </ol>
-<p>Since <span class="math inline">\(f(t)\)</span> shows us the <em>slope</em> of the <span class="math inline">\(y(t)\)</span>, we can deduce enough information from <span class="math inline">\(f(t)\)</span> to sketch out a graph illustrating the behavior of <span class="math inline">\(y(t)\)</span> like:</p>
+<p>Since <span class="math inline">\(f(t)\)</span> shows us the <em>slope</em> of <span class="math inline">\(y(t)\)</span>, we can deduce enough information from <span class="math inline">\(f(t)\)</span> to sketch out a graph illustrating the behavior of <span class="math inline">\(y(t)\)</span> like:</p>
 <ul>
 <li>where it is increasing/decreasing</li>
 <li>locations of local and possibly global extrema</li>
@@ -441,8 +441,8 @@ window.Quarto = {
 <ol start="2" type="1">
 <li><strong>Algebraic Approach: Integration Techniques.</strong></li>
 </ol>
-<p>The rules of differentiation are concrete. If we are proficient with them, we can play a fairly educated guessing and checking game to try and find <span class="math inline">\(y(t)\)</span> and then check to see if it works.</p>
-<p>Standard integration techniques use rules for differentiation in clever ways to try and manipulate the problem into something more easily recognizable, e.g.&nbsp;<span class="math inline">\(u\)</span>-substitution is based on the chain rule and integration by parts is based on the product rule.</p>
+<p>The rules of differentiation are concrete. If we are proficient with them, we can play an educated guess and check game to find <span class="math inline">\(y(t)\)</span>.</p>
+<p>Standard integration techniques use rules for differentiation in clever ways to manipulate the problem into something more easily recognizable, e.g.&nbsp;<span class="math inline">\(u\)</span>-substitution is based on the chain rule and integration by parts is based on the product rule.</p>
 <ol start="3" type="1">
 <li><strong>Numerical Approach: FTC + Riemann Sums.</strong></li>
 </ol>
@@ -453,7 +453,7 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="what-will-we-study">What will we study?</h2>
 <p>What is new in this class is that the kinds of differential equations we want to solve will depend explicitly on the dependent variable. Our focus will be on <em>ordinary</em> differential equations (ODEs); ODEs can involve multiple dependent variables, however, they depend only on a single independent variable, usually thought of as <em>time</em>.</p>
 <p>Equations where there are multiple independent variables (e.g.&nbsp;time and <em>space</em>) will involve partial derivatives, which is the focus of MATH-451 Partial Differential Equations (or PDEs).</p>
-<p>We will start out with <em>first-order</em> equations, those that involve only the first-derivative, and can be written in the form:</p>
+<p>We will start out with <em>first-order</em> equations, those that involve only the first derivative, and can be written in the form:</p>
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -479,10 +479,10 @@ window.Quarto = {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Find <span class="math inline">\(\mathbf{v}: I\subseteq\mathbb R\to \mathbb R^n\)</span> (or maybe <span class="math inline">\(\mathbb C^n\)</span>) such that <span class="math display">\[\frac{d\mathbf{v}}{dt}=f(t,\mathbf{v})\]</span> for all <span class="math inline">\(t\)</span> in the interval <span class="math inline">\(I\)</span></p>
+<p>Find <span class="math inline">\(\mathbf{v}: I\subseteq\mathbb R\to \mathbb R^n\)</span> (or maybe <span class="math inline">\(\mathbb C^n\)</span>) such that <span class="math display">\[\frac{d\mathbf{v}}{dt}=f(t,\mathbf{v})\]</span> for all <span class="math inline">\(t\)</span> in the interval <span class="math inline">\(I\)</span>.</p>
 </div>
 </div>
-<p>We will also discuss <em>second</em>-order equations (and maybe a few second-order systems), which involve second-derivatives in addition to first-derivatives, the dependent variables, and time:</p>
+<p>We will also discuss <em>second</em>-order equations (and maybe a few second-order systems), which add second derivatives into the mix:</p>
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -499,34 +499,33 @@ window.Quarto = {
 </section>
 <section id="what-is-a-mathematical-model" class="level2">
 <h2 class="anchored" data-anchor-id="what-is-a-mathematical-model">What is a Mathematical Model?</h2>
-<p>Differential equations are interesting enough on their own. However, the reason they were discovered and continue to be an area of active research is because they provide the right mathematical framework for modeling so many different real-world relationships. The key idea is that we can start with this <em>local</em> property–some formula governing the rate at which the variables in our system are changing–and use it to build a <em>global</em> model for how the system will evolve. This allows us to make predictions, weigh and compare decisions, simulate experiments, and try to discover properties that may otherwise be difficult or costly to observe.</p>
-<p>This semester, we will frequently use the goal of modeling to help motivate the mathematical concepts involved with analyzing and solving differential equation. Our first example will walk us through the steps involved:</p>
+<p>Differential equations are interesting enough on their own. However, the reason they were discovered and continue to be an area of active research is that they provide the right mathematical framework for modeling so many different real-world relationships. The key idea is that we can start with this <em>local</em> property—some formula governing the rate at which the variables in our system are changing—and use it to build a <em>global</em> model for how the system will evolve. This allows us to make predictions, weigh and compare decisions, simulate experiments, and try to discover properties that may otherwise be difficult or costly to observe.</p>
+<p>This semester, we will frequently use the goal of modeling to help motivate the mathematical concepts involved with analyzing and solving differential equations. Our first example will walk us through the steps involved:</p>
 <ol type="1">
 <li>Create the Model.</li>
 <li>Analyze the Model.</li>
 <li>Interpret the Model.</li>
 </ol>
-<p>We will use our first example to help us walk through this process step-by-step in order to get a better feel for what is involved.</p>
 </section>
 <section id="step-1-creating-the-model" class="level2">
 <h2 class="anchored" data-anchor-id="step-1-creating-the-model">Step 1: Creating the Model</h2>
-<section id="ask-observe" class="level4">
-<h4 class="anchored" data-anchor-id="ask-observe">Ask &amp; Observe</h4>
+<div class="step-label">
+<p>Ask &amp; Observe</p>
+</div>
 <p>Creating a model starts with a question. What is it that you want to understand better? Identify the variables of interest. Make observations and/or collect data to begin to think about what governs the rates at which these quantities change.</p>
-</section>
-<section id="make-assumptions" class="level4">
-<h4 class="anchored" data-anchor-id="make-assumptions">Make Assumptions</h4>
+<div class="step-label">
+<p>Make Assumptions</p>
+</div>
 <p>It will usually be impossible to create a perfect mathematical representation of the relationship we are interested in exploring. Even if we could, it will likely be too complex with too many variables to be able to extract something useful when we analyze it.</p>
 <p>So, before writing down our equation or system of equations, we will need to make some simplifying assumptions. The simpler the equation, the easier it is to analyze, but we likely will also take away less from the analysis that we can use to address our motivating questions.</p>
 <p>In most cases, the best approach is to start with an oversimplified model, and then slowly make it more complex and realistic until you reach your mathematical breaking point.</p>
-</section>
-<section id="state-clearly" class="level4">
-<h4 class="anchored" data-anchor-id="state-clearly">State Clearly</h4>
+<div class="step-label">
+<p>State Clearly</p>
+</div>
 <p>State your motivating questions and the assumptions you are making. Write out the resulting differential equation, clearly defining all variables and parameters that are being used.</p>
 </section>
-</section>
-<section id="example-sprint-speed." class="level2">
-<h2 class="anchored" data-anchor-id="example-sprint-speed.">Example: Sprint Speed.</h2>
+<section id="example-sprint-speed" class="level2">
+<h2 class="anchored" data-anchor-id="example-sprint-speed">Example: Sprint Speed</h2>
 <p>Our first example is to create a model for how a sprinter’s speed increases throughout a 100m race. Reasons why we may be interested in this:</p>
 <ul>
 <li>To understand the human physiology of track athletes better</li>
@@ -537,18 +536,39 @@ window.Quarto = {
 <p>In this scenario, our assumptions are:</p>
 <ol type="1">
 <li>Each sprinter’s acceleration <span class="math inline">\(a\)</span> at any moment in time is determined by their mass <span class="math inline">\(m\)</span> and the net horizontal force acting on them <span class="math inline">\(F\)</span> by Newton’s second law of motion.</li>
-<li>The net horizontal force <span class="math inline">\(F\)</span> is the difference between a sprinter’s intrinsic propulsive force <span class="math inline">\(F_p\)</span> and a resistive force <span class="math inline">\(F_r\)</span>.</li>
+<li>The net horizontal force <span class="math inline">\(F\)</span> is the difference between a sprinter’s intrinsic propulsive force <span class="math inline">\(F_P\)</span> and a resistive force <span class="math inline">\(F_R\)</span>.</li>
 <li>The intrinsic propulsive force <span class="math inline">\(F_P\)</span> is constant. It is determined by their mass and the raw acceleration <span class="math inline">\(P\)</span> they could theoretically achieve under maximum effort and in the absence of resistive forces.</li>
 <li>The resistive force <span class="math inline">\(F_R\)</span> opposes the sprinter’s motion. We would expect that the resistive force would increase with the runner’s speed <span class="math inline">\(v\)</span> and mass. Let’s assume the resistive force is proportional to both of these quantities; let <span class="math inline">\(k\)</span> represent this proportionality constant.</li>
 </ol>
 </section>
-<section id="discussion-problem-1-create-the-model." class="level3">
-<h3 class="anchored" data-anchor-id="discussion-problem-1-create-the-model.">Discussion Problem 1: Create the model.</h3>
+<section id="discussion-problem-1-create-the-model" class="level3">
+<h3 class="anchored" data-anchor-id="discussion-problem-1-create-the-model">Discussion Problem 1: Create the model</h3>
 <ol type="a">
 <li>With these assumptions, write down an equation modeling the relationship between a sprinter’s acceleration and their speed during a race.</li>
 <li>Identify and define any independent variables, dependent variables, and parameters in the model. Are we making any assumptions about the values of the parameters or variables in our model?</li>
 <li>If mass is measured in kilograms (kg), distance in meters (m), and time in seconds (s), what units would make sense for the parameters/variables in the model?</li>
 </ol>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Answer:
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li>Based on the listed assumptions, <span class="math display">\[m\frac{dv}{dt}=mP-mkv\]</span></li>
+<li>The independent variable is time <span class="math inline">\(t\)</span> and the dependent variable is speed <span class="math inline">\(v\)</span>; the parameters all depend on the runner—mass <span class="math inline">\(m\)</span>, max effort acceleration <span class="math inline">\(P\)</span>, and the resistive force constant <span class="math inline">\(k\)</span>. The way we have set up this model, we are assuming all parameters are positive. Given the context</li>
+<li><span class="math inline">\(P\)</span> is acceleration so it should be <span class="math inline">\(m/s^2\)</span>; <span class="math inline">\(k\)</span> will be <span class="math inline">\(s^{-1}\)</span>.<br>
+</li>
+</ol>
+</div>
+</div>
+</div>
 
 
 </section>

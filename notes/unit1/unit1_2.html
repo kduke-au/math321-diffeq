@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Analyze the Model – Math 321 - Differential Equations</title>
+<title>Analyze &amp; Interpret the Model – Math 321 - Differential Equations</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -75,7 +75,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<meta name="quarto:status" content="draft">
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
@@ -273,7 +272,7 @@ window.Quarto = {
   </script>
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top"><div id="quarto-draft-alert" class="alert alert-warning"><i class="bi bi-pencil-square"></i>Draft</div>
+  <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
@@ -303,7 +302,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Analyze the Model</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../notes/unit1/index.html">Unit 1: Introduction &amp; First-Order Equations</a></li><li class="breadcrumb-item"><a href="../../notes/unit1/unit1_2.html">Analyze &amp; Interpret the Model</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -343,11 +342,11 @@ window.Quarto = {
   </div>
 </li>
           <li class="sidebar-item">
- <span class="menu-text">Analyze the Model</span>
-  </li>
-          <li class="sidebar-item">
- <span class="menu-text">Interpret the Model</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="../../notes/unit1/unit1_2.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Analyze &amp; Interpret the Model</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -376,10 +375,18 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#discussion-problem-2-qualitative-analysis." id="toc-discussion-problem-2-qualitative-analysis." class="nav-link active" data-scroll-target="#discussion-problem-2-qualitative-analysis.">Discussion Problem 2: Qualitative Analysis.</a></li>
-  <li><a href="#discussion-problem-3-numerical-analysis." id="toc-discussion-problem-3-numerical-analysis." class="nav-link" data-scroll-target="#discussion-problem-3-numerical-analysis.">Discussion Problem 3: Numerical Analysis.</a></li>
-  <li><a href="#discussion-problem-4-analytical-analysis." id="toc-discussion-problem-4-analytical-analysis." class="nav-link" data-scroll-target="#discussion-problem-4-analytical-analysis.">Discussion Problem 4: Analytical Analysis.</a></li>
-  <li><a href="#check-your-model-against-real-data." id="toc-check-your-model-against-real-data." class="nav-link" data-scroll-target="#check-your-model-against-real-data.">Check your model against real data.</a></li>
+  <li><a href="#step-2-analyze-the-model" id="toc-step-2-analyze-the-model" class="nav-link active" data-scroll-target="#step-2-analyze-the-model">Step 2: Analyze the Model</a></li>
+  <li><a href="#example-sprint-speed-continued" id="toc-example-sprint-speed-continued" class="nav-link" data-scroll-target="#example-sprint-speed-continued">Example: Sprint Speed Continued</a>
+  <ul class="collapse">
+  <li><a href="#discussion-problem-1-qualitative-analysis." id="toc-discussion-problem-1-qualitative-analysis." class="nav-link" data-scroll-target="#discussion-problem-1-qualitative-analysis.">Discussion Problem 1: Qualitative Analysis.</a></li>
+  <li><a href="#discussion-problem-2-numerical-analysis." id="toc-discussion-problem-2-numerical-analysis." class="nav-link" data-scroll-target="#discussion-problem-2-numerical-analysis.">Discussion Problem 2: Numerical Analysis.</a></li>
+  <li><a href="#discussion-problem-3-analytical-analysis." id="toc-discussion-problem-3-analytical-analysis." class="nav-link" data-scroll-target="#discussion-problem-3-analytical-analysis.">Discussion Problem 3: Analytical Analysis.</a></li>
+  </ul></li>
+  <li><a href="#step-3-interpret-the-model" id="toc-step-3-interpret-the-model" class="nav-link" data-scroll-target="#step-3-interpret-the-model">Step 3: Interpret the Model</a></li>
+  <li><a href="#example-sprint-speed-conclusion" id="toc-example-sprint-speed-conclusion" class="nav-link" data-scroll-target="#example-sprint-speed-conclusion">Example: Sprint Speed Conclusion</a>
+  <ul class="collapse">
+  <li><a href="#discussion-problem-4-check-your-model-against-real-data." id="toc-discussion-problem-4-check-your-model-against-real-data." class="nav-link" data-scroll-target="#discussion-problem-4-check-your-model-against-real-data.">Discussion Problem 4: Check your model against real data.</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -387,9 +394,10 @@ window.Quarto = {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../notes/unit1/index.html">Unit 1: Introduction &amp; First-Order Equations</a></li><li class="breadcrumb-item"><a href="../../notes/unit1/unit1_2.html">Analyze &amp; Interpret the Model</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Analyze the Model</h1>
+<h1 class="title">Analyze &amp; Interpret the Model</h1>
+<p class="subtitle lead">Read Sections 1.2-4</p>
 </div>
 
 
@@ -406,24 +414,55 @@ window.Quarto = {
 </header>
 
 
-<p>Just like in calculus, we will use a three-pronged approach to analyze our model:</p>
+<p>Once we have converted our question into a clearly stated, well-defined math problem, we can begin to analyze it.</p>
+<section id="step-2-analyze-the-model" class="level2">
+<h2 class="anchored" data-anchor-id="step-2-analyze-the-model">Step 2: Analyze the Model</h2>
+<p>Just like in calculus, we use a three-pronged approach to analyze differential equations:</p>
 <ul>
 <li><strong>Qualitative Approach.</strong> What does the equation governing the slope of the model tell us about the properties of any solution? Can we sketch a graph of the solution? Can we determine the long-run behavior of a solution? How do the properties of a solution depend on the parameters in the model?</li>
 <li><strong>Numerical Approach.</strong> Is there a numerical method we can use to estimate the values of a solution? Can we determine error bounds for this method? How does the error or convergence of the method depend on initial values or parameters?<br>
 </li>
-<li><strong>Analytical Approach</strong> Do we know a solution exists? Given some initial state, is the solution unique? Is it possible to actually extract a formula for the model?</li>
+<li><strong>Analytical Approach.</strong> Do we know a solution exists? Given some initial state, is the solution unique? Is it possible to actually extract a formula for the model?</li>
 </ul>
-<section id="discussion-problem-2-qualitative-analysis." class="level3">
-<h3 class="anchored" data-anchor-id="discussion-problem-2-qualitative-analysis.">Discussion Problem 2: Qualitative Analysis.</h3>
+</section>
+<section id="example-sprint-speed-continued" class="level2">
+<h2 class="anchored" data-anchor-id="example-sprint-speed-continued">Example: Sprint Speed Continued</h2>
+<p>Recall that our model for a sprinter’s speed throughout a 100m race is given by: <span class="math display">\[m\frac{dv}{dt}=mP-kmv\]</span> where <span class="math inline">\(m\)</span> is the sprinter’s mass (in kg), <span class="math inline">\(P\)</span> represents the max effort acceleration a sprinter can achieve (in m/s<span class="math inline">\(^2\)</span>), and <span class="math inline">\(k\)</span> is the proportionality constant for the resistive force (in s<span class="math inline">\(^{-1}\)</span>).</p>
+<section id="discussion-problem-1-qualitative-analysis." class="level3">
+<h3 class="anchored" data-anchor-id="discussion-problem-1-qualitative-analysis.">Discussion Problem 1: Qualitative Analysis.</h3>
 <p>We will start by analyzing it qualitatively:</p>
 <ol type="a">
 <li>Describe how the sprinter’s speed is expected to change throughout the race according to the model. Will it increase? decrease?</li>
 <li>Describe how the sprinter’s acceleration is expected to change throughout the race.</li>
-<li>Sketch a graph of <span class="math inline">\(v(t)\)</span>. What do you expect to happen to <span class="math inline">\(v(t)\)</span> in the long run, i.e.&nbsp;what is <span class="math inline">\(\lim_{t\to\infty}v(t)\)</span>? What is the practical significance of this?</li>
+<li>Sketch a graph of <span class="math inline">\(v(t)\)</span>. What do you expect to happen to <span class="math inline">\(v(t)\)</span> in the long run, i.e.&nbsp;what is <span class="math display">\[\lim_{t\to\infty}v(t)?\]</span> What is the practical significance of this?</li>
 </ol>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Answer:
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>First, it helps to simplify the differential equation by dividing through by mass: <span class="math display">\[\frac{dv}{dt}=P-kv\]</span></p>
+<ol type="a">
+<li><p>Note that <span class="math inline">\(\frac{dv}{dt}=0\)</span> when <span class="math inline">\(v=\frac{P}{k}\)</span>. So, that means if the sprinter is ever going at this speed, they will stay at this speed for all time. A constant solution to a differential equation, like this one, is called a <em>equilibrium solution</em>.</p>
+<p>If <span class="math inline">\(v&gt;\frac{P}{k}\)</span>, then <span class="math inline">\(\frac{dv}{dt}&lt;0\)</span>, and so at this speed, their speed will decrease.</p>
+<p>If <span class="math inline">\(v&lt;\frac{P}{k}\)</span>, then <span class="math inline">\(\frac{dv}{dt}&gt;0\)</span>, and so at this speed, their speed will increase.</p>
+<p>In context, their speed at the beginning of the race will be 0 and so this is telling us that their speed should <em>increase</em> throughout the race according to the model.</p></li>
+<li><p>If <span class="math inline">\(v\)</span> is increasing throughout the race, then their acceleration <span class="math display">\[\frac{dv}{dt}=P-kv\]</span> will <em>decrease</em>.</p></li>
+<li><p><a href="https://www.geogebra.org/calculator/av9pd2xr">Here is a “sketch” of a solution using a <em>slope</em> or <em>direction field</em>.</a> What this tells us is that as the race goes on, the runner’s speed will approach a threshold of <span class="math inline">\(P/k\)</span>.</p></li>
+</ol>
+</div>
+</div>
+</div>
 </section>
-<section id="discussion-problem-3-numerical-analysis." class="level3">
-<h3 class="anchored" data-anchor-id="discussion-problem-3-numerical-analysis.">Discussion Problem 3: Numerical Analysis.</h3>
+<section id="discussion-problem-2-numerical-analysis." class="level3">
+<h3 class="anchored" data-anchor-id="discussion-problem-2-numerical-analysis.">Discussion Problem 2: Numerical Analysis.</h3>
 <p>Next, can we use our equation to make numerical estimates for how the value of <span class="math inline">\(v(t)\)</span> will change throughout the race. Let’s assume that <span class="math inline">\(P=10\)</span> <span class="math inline">\(m\cdot s^{-2}\)</span> and <span class="math inline">\(k=0.85\)</span> s<span class="math inline">\(^{-1}\)</span> for a particular sprinter during a race. Assume that their speed, <span class="math inline">\(v\)</span>, is <span class="math inline">\(0\)</span> <span class="math inline">\(m\cdot s^{-1}\)</span> initially at <span class="math inline">\(t=0\)</span> and that for <span class="math inline">\(t\geq 0\)</span>, their speed changes according to our model.</p>
 <p>Use the information provided to determine/estimate the following values of <span class="math inline">\(v(t)\)</span> and <span class="math inline">\(v'(t)\)</span>:</p>
 <table class="caption-top table">
@@ -460,16 +499,24 @@ window.Quarto = {
 </tbody>
 </table>
 </section>
-<section id="discussion-problem-4-analytical-analysis." class="level3">
-<h3 class="anchored" data-anchor-id="discussion-problem-4-analytical-analysis.">Discussion Problem 4: Analytical Analysis.</h3>
+<section id="discussion-problem-3-analytical-analysis." class="level3">
+<h3 class="anchored" data-anchor-id="discussion-problem-3-analytical-analysis.">Discussion Problem 3: Analytical Analysis.</h3>
 <p>This particular model is an example of a <em>separable</em> equation. These types of equations can be solved using a technique called <em>separation of variables</em>.</p>
 <ol type="a">
 <li>After we discuss the idea, try and use this technique to solve the equation.</li>
 <li>Once you have your general solution, try and solve the <em>initial value problem</em>, where we are looking for a solution to the equation such that <span class="math inline">\(v(0)=0\)</span>.</li>
 </ol>
 </section>
-<section id="check-your-model-against-real-data." class="level2">
-<h2 class="anchored" data-anchor-id="check-your-model-against-real-data.">Check your model against real data.</h2>
+</section>
+<section id="step-3-interpret-the-model" class="level2">
+<h2 class="anchored" data-anchor-id="step-3-interpret-the-model">Step 3: Interpret the Model</h2>
+<p>The results of your mathematical analysis ultimately have to be reframed in the context of your model. What did you learn? How does it relate to your motivating questions? Do your assumptions place any limitations on what you can reasonably take away from your analysis?</p>
+<p>If possible, compare how well your model fits real data. What can you learn from any discrepancies and how can you use this information to make your model better?</p>
+</section>
+<section id="example-sprint-speed-conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="example-sprint-speed-conclusion">Example: Sprint Speed Conclusion</h2>
+<section id="discussion-problem-4-check-your-model-against-real-data." class="level3">
+<h3 class="anchored" data-anchor-id="discussion-problem-4-check-your-model-against-real-data.">Discussion Problem 4: Check your model against real data.</h3>
 <p>In this case, we are modeling a relationship between real-world variables and so we can check how well our model performs against real data. In the 2024 Summer Olympics, <a href="https://www.youtube.com/watch?v=-HiJu8huJ9I&amp;t=18s">Julien Alfred</a> (St.&nbsp;Lucia) and <a href="https://www.youtube.com/watch?v=7Xnr805bm4E">Noah Lyles</a> (USA) won the women’s and men’s 100m races. Data from each of their final 100m races is included in the table below:</p>
 <table class="caption-top table">
 <caption>Official results for the <a href="https://olympics.com/OG2024/pdf/OG2024/ATH/OG2024_ATH_C77A_ATHW100M--------------FNL-000100--.pdf">women’s 100m final</a> and <a href="https://olympics.com/OG2024/pdf/OG2024/ATH/OG2024_ATH_C77A_ATHM100M--------------FNL-000100--.pdf">men’s 100m final</a>.</caption>
@@ -522,11 +569,12 @@ window.Quarto = {
 </table>
 <ol type="a">
 <li>Note that each one did not immediately start running. The first recorded time is their <em>reaction time</em> <span class="math inline">\(t_0\)</span>. How can this be factored into our model?</li>
-<li>The data from the race compares distance vs.&nbsp;time. Using your answer to question 3c, find a formula for the distance a sprinter had run, <span class="math inline">\(x(t)\)</span> (in m), <span class="math inline">\(t\)</span> seconds into the race for <span class="math inline">\(t&gt;t_0\)</span>.</li>
+<li>The data from the race compares distance vs.&nbsp;time. Using your answer to Problem 3b, find a formula for the distance a sprinter had run, <span class="math inline">\(x(t)\)</span> (in m), <span class="math inline">\(t\)</span> seconds into the race for <span class="math inline">\(t&gt;t_0\)</span>.</li>
 <li>Alfred’s reaction time was <span class="math inline">\(0.14\)</span>s and Lyles’ was <span class="math inline">\(0.18\)</span>s. Their race data has been loaded into Desmos <a href="https://www.desmos.com/calculator/zt025mreaf">here</a>. Using your general formula for <span class="math inline">\(x(t)\)</span> and the curve fitting tool in Desmos, determine the values of <span class="math inline">\(P\)</span> and <span class="math inline">\(k\)</span> that best fit the data.</li>
 </ol>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
