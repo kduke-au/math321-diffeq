@@ -74,7 +74,6 @@ website:
         - section: "Unit 5: Introduction to Nonlinear Systems"
           contents:
   drafts:
-    - notes/unit1/unit1_3.qmd
     - notes/unit2/index.qmd
     - notes/unit3/index.qmd
     - notes/unit4/index.qmd
