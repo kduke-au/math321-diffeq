@@ -28,6 +28,8 @@ website:
               href: notes/unit1/unit1_1.qmd  
             - text: "Analyze & Interpret the Model"
               href: notes/unit1/unit1_2.qmd
+            - text: "Qualitative Approach"
+              href: notes/unit1/unit1_3.qmd  
             # - text: "Interpret the Model"
             # - text: "Analytic Solutions: Separation of Variables"
             #   href: notes/unit1/1-3-separation.qmd
