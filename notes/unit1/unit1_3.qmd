@@ -24,6 +24,7 @@ has no solution when $y_0=0$.
 $$\frac{dy}{dt}=\text{sign}(t), \quad y(t_0)=y_0$$
 has no solution when $t_0=0$.   
 
+
 **Warning:** If a solution exists, it does not necessarily mean it will be defined for all time!
 
 ### Problem 2: Interval of Existence
@@ -43,7 +44,7 @@ Find at least two functions $y(t)$ satisfying the initial value problem: $$\frac
 ### Problem 4: Temperature Change
 Suppose you lost power inside your home and the temperature inside the building is changing as heat is exchanged through the exterior of the building. 
 
-Let $B$ be the temperature inside your home and $E$ be the temperature outside your home. Assume that:
+Let $H$ be the temperature inside your home and $E$ be the temperature outside your home. Assume that:
 
 - The external temperature $E$ is constant.
 - The rate of change of the temperature inside your home is proportional to the difference between the external and internal temperatures.
@@ -52,8 +53,8 @@ Based on these assumptions:
 
 a. Write a differential equation modeling the rate of change of the temperature inside of your home.
 b. Sketch the slope field for this differential equation.
-c. Explain the different scenarios for how $B(t)$ is expected to change as $t\to\infty$.
+c. Explain the different scenarios for how $H(t)$ is expected to change as $t\to\infty$.
 d. Explain how you are implicitly using the Existence and Uniqueness theorems in your conclusions for part (c).
 e. Now suppose $E$ is not constant but fluctuates sinusoidally over time, e.g. $$E(t)=A\sin(k(t-T))+E_T$$
-what effect does this have on the long-term behavior of $B(t)$? Again, use a slope field to help you make your guess. [Here is a link to a Desmos graph](https://www.desmos.com/calculator/sfbgjlcmlw) you can modify to help you make your conclusions.
+what effect does this have on the long-term behavior of $H(t)$? Again, use a slope field to help you make your guess. [Here is a link to a Desmos graph](https://www.desmos.com/calculator/sfbgjlcmlw) you can modify to help you make your conclusions.
 
