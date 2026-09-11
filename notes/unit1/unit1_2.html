@@ -382,10 +382,13 @@ window.Quarto = {
    
   <ul>
   <li><a href="#step-2-analyze-the-model" id="toc-step-2-analyze-the-model" class="nav-link active" data-scroll-target="#step-2-analyze-the-model">Step 2: Analyze the Model</a></li>
-  <li><a href="#example-sprint-speed-continued" id="toc-example-sprint-speed-continued" class="nav-link" data-scroll-target="#example-sprint-speed-continued">Example: Sprint Speed Continued</a>
+  <li><a href="#qualitative-approach---slope-fields" id="toc-qualitative-approach---slope-fields" class="nav-link" data-scroll-target="#qualitative-approach---slope-fields">Qualitative Approach - Slope Fields</a>
   <ul class="collapse">
-  <li><a href="#discussion-problem-1-qualitative-analysis." id="toc-discussion-problem-1-qualitative-analysis." class="nav-link" data-scroll-target="#discussion-problem-1-qualitative-analysis.">Discussion Problem 1: Qualitative Analysis.</a></li>
-  <li><a href="#discussion-problem-2-numerical-analysis." id="toc-discussion-problem-2-numerical-analysis." class="nav-link" data-scroll-target="#discussion-problem-2-numerical-analysis.">Discussion Problem 2: Numerical Analysis.</a></li>
+  <li><a href="#discussion-problem-1-sprint-speed-continued" id="toc-discussion-problem-1-sprint-speed-continued" class="nav-link" data-scroll-target="#discussion-problem-1-sprint-speed-continued">Discussion Problem 1: Sprint Speed Continued</a></li>
+  </ul></li>
+  <li><a href="#numerical-approach---eulers-method" id="toc-numerical-approach---eulers-method" class="nav-link" data-scroll-target="#numerical-approach---eulers-method">Numerical Approach - Euler’s Method</a>
+  <ul class="collapse">
+  <li><a href="#discussion-problem-2-sprint-speed-continued." id="toc-discussion-problem-2-sprint-speed-continued." class="nav-link" data-scroll-target="#discussion-problem-2-sprint-speed-continued.">Discussion Problem 2: Sprint Speed Continued.</a></li>
   <li><a href="#discussion-problem-3-analytical-analysis." id="toc-discussion-problem-3-analytical-analysis." class="nav-link" data-scroll-target="#discussion-problem-3-analytical-analysis.">Discussion Problem 3: Analytical Analysis.</a></li>
   </ul></li>
   <li><a href="#step-3-interpret-the-model" id="toc-step-3-interpret-the-model" class="nav-link" data-scroll-target="#step-3-interpret-the-model">Step 3: Interpret the Model</a></li>
@@ -431,11 +434,61 @@ window.Quarto = {
 <li><strong>Analytical Approach.</strong> Do we know a solution exists? Given some initial state, is the solution unique? Is it possible to actually extract a formula for the model?</li>
 </ul>
 </section>
-<section id="example-sprint-speed-continued" class="level2">
-<h2 class="anchored" data-anchor-id="example-sprint-speed-continued">Example: Sprint Speed Continued</h2>
+<section id="qualitative-approach---slope-fields" class="level2">
+<h2 class="anchored" data-anchor-id="qualitative-approach---slope-fields">Qualitative Approach - Slope Fields</h2>
+<p>Slope fields are one tool that we can use to try and understand the behavior of a solution <span class="math inline">\(y(t)\)</span>. To create a slope field for the equation <span class="math inline">\(\frac{dy}{dt}=f(t,y)\)</span>:</p>
+<ul>
+<li>Select a grid of points in the <span class="math inline">\((t,y)\)</span>-plane.</li>
+<li>At each point <span class="math inline">\((t,y)\)</span> in your grid, draw a small line through that point with slope <span class="math inline">\(f(t,y)\)</span>.</li>
+<li>Each “slope” that you draw really represents a tangent line. Any solution passing through that point must be tangent to the line you draw at that point.</li>
+<li>Once all your slopes are drawn, sit back and stare at it for a bit like a Magic Eye puzzle.</li>
+</ul>
+<p>If <span class="math inline">\(f(t,y)\)</span> isn’t too complicated, we can use the slope field to, either mentally or by hand, sketch out what a solution to the differential equation is going to look like. At the very least, try to <em>see</em> where a solution <span class="math inline">\(y(t)\)</span> will be increasing/decreasing. You may also be able to see what happens to <span class="math inline">\(y(t)\)</span> as <span class="math inline">\(t\to\infty\)</span>. Occasionally, you may even be able to guess formulas for simple solutions to the differential equation based on the slope field. (See below for an example of such a scenario.)</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Example - Slope Field
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>For example, the slope field for <span class="math inline">\(\frac{dy}{dt}=y-t\)</span> is shown below:</p>
+<div id="fig-slopefield-ex" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-slopefield-ex-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/slopefield_u1_2.png" class="img-fluid figure-img" style="width:40.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-slopefield-ex-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Slope Field Example
+</figcaption>
+</figure>
+</div>
+<p>Looking closely at the slope field, we can see that there is one particular line where all the slopes line up. This suggests that any solution starting on this line will stay on this line. The equation of that line is <span class="math inline">\(y=t+1\)</span>.</p>
+<p>Is this actually a solution? Checking <span class="math inline">\(y(t)=t+1\)</span>: <span class="math display">\[\begin{align}
+&amp; y'(t)=1 \\
+&amp; y(t)-t = t+1 - t = 1   
+\end{align}\]</span> We see that this satisfies the differential equation and is therefore a solution.</p>
+<p>We can also see how other solutions will behave relative to the one we found. If a solution starts above the line <span class="math inline">\(y=t+1\)</span>, it will increase away from this line. If a solution starts just below <span class="math inline">\(y=t+1\)</span>, it will increase at first, but its slope will be less than 1 and so it will bend away from the line <span class="math inline">\(y=t+1\)</span>. Eventually, the solution will intersect the line <span class="math inline">\(y=t\)</span>, where all the values of <span class="math inline">\(dy/dt=0\)</span>; after this point, the solution will decrease.</p>
+<div id="fig-slopefield-ex" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-slopefield-ex-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/slopefield_soln_u1_2.png" class="img-fluid figure-img" style="width:40.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-slopefield-ex-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Sketch of Solutions
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<section id="discussion-problem-1-sprint-speed-continued" class="level3">
+<h3 class="anchored" data-anchor-id="discussion-problem-1-sprint-speed-continued">Discussion Problem 1: Sprint Speed Continued</h3>
 <p>Recall that our model for a sprinter’s speed throughout a 100m race is given by: <span class="math display">\[m\frac{dv}{dt}=mP-kmv\]</span> where <span class="math inline">\(m\)</span> is the sprinter’s mass (in kg), <span class="math inline">\(P\)</span> represents the max effort acceleration a sprinter can achieve (in m/s<span class="math inline">\(^2\)</span>), and <span class="math inline">\(k\)</span> is the proportionality constant for the resistive force (in s<span class="math inline">\(^{-1}\)</span>).</p>
-<section id="discussion-problem-1-qualitative-analysis." class="level3">
-<h3 class="anchored" data-anchor-id="discussion-problem-1-qualitative-analysis.">Discussion Problem 1: Qualitative Analysis.</h3>
 <p>We will start by analyzing it qualitatively:</p>
 <ol type="a">
 <li>Describe how the sprinter’s speed is expected to change throughout the race according to the model. Will it increase? decrease?</li>
@@ -443,7 +496,7 @@ window.Quarto = {
 <li>Sketch a graph of <span class="math inline">\(v(t)\)</span>. What do you expect to happen to <span class="math inline">\(v(t)\)</span> in the long run, i.e.&nbsp;what is <span class="math display">\[\lim_{t\to\infty}v(t)?\]</span> What is the practical significance of this?</li>
 </ol>
 <div class="callout callout-style-default callout-tip no-icon callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -452,7 +505,7 @@ window.Quarto = {
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>First, it helps to simplify the differential equation by dividing through by mass: <span class="math display">\[\frac{dv}{dt}=P-kv\]</span></p>
 <ol type="a">
@@ -461,14 +514,113 @@ window.Quarto = {
 <p>If <span class="math inline">\(v&lt;\frac{P}{k}\)</span>, then <span class="math inline">\(\frac{dv}{dt}&gt;0\)</span>, and so at this speed, their speed will increase.</p>
 <p>In context, their speed at the beginning of the race will be 0 and so this is telling us that their speed should <em>increase</em> throughout the race according to the model.</p></li>
 <li><p>If <span class="math inline">\(v\)</span> is increasing throughout the race, then their acceleration <span class="math display">\[\frac{dv}{dt}=P-kv\]</span> will <em>decrease</em>.</p></li>
-<li><p><a href="https://www.geogebra.org/calculator/av9pd2xr">Here is a “sketch” of a solution using a <em>slope</em> or <em>direction field</em>.</a> What this tells us is that as the race goes on, the runner’s speed will approach a threshold of <span class="math inline">\(P/k\)</span>.</p></li>
+<li><p><a href="https://www.geogebra.org/calculator/av9pd2xr">Here is a “sketch” of a solution using a <em>slope</em> or <em>direction field</em>.</a></p></li>
 </ol>
+<div id="fig-sprint-ex" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-sprint-ex-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/sprint_speed_slopefield.png" class="img-fluid figure-img" style="width:40.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-sprint-ex-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: Slope Field Sketch of Sprint Speed
+</figcaption>
+</figure>
+</div>
+<p>What this tells us is that as the race goes on, the runner’s speed will approach a threshold of <span class="math inline">\(P/k\)</span>. This tells us that, if a runner is looking to improve their performance, they need to figure out how to make <span class="math inline">\(P\)</span> bigger or <span class="math inline">\(k\)</span> smaller.</p>
 </div>
 </div>
 </div>
 </section>
-<section id="discussion-problem-2-numerical-analysis." class="level3">
-<h3 class="anchored" data-anchor-id="discussion-problem-2-numerical-analysis.">Discussion Problem 2: Numerical Analysis.</h3>
+</section>
+<section id="numerical-approach---eulers-method" class="level2">
+<h2 class="anchored" data-anchor-id="numerical-approach---eulers-method">Numerical Approach - Euler’s Method</h2>
+<p>When sketching solutions using a slope field, we start at a particular point, then move forward by allowing the slopes to “push” the solution in a particular direction. <em>Euler’s method</em> makes this idea a little more precise by turning it in to a sequence of computations.</p>
+<p>The main idea—to approximate a solution <span class="math inline">\(y(t)\)</span> for the differential equation <span class="math display">\[\frac{dy}{dt}=f(t,y):\]</span></p>
+<ul>
+<li>Choose <span class="math inline">\((t_0, y_0)\)</span>, the starting point in the <span class="math inline">\((t,y)\)</span>-plane. If you are solving an initial value problem, use the indicated starting point.</li>
+<li>Specify an ending time <span class="math inline">\(t_N&gt;t_0\)</span>.</li>
+<li>Choose <span class="math inline">\(N\)</span>, the total number of steps you will be using to get from <span class="math inline">\(t_0\)</span> to <span class="math inline">\(t_N\)</span>.</li>
+<li>Use linear approximation to recursively generate a sequence of estimates <span class="math inline">\(y_1, y_2, \ldots, y_N\)</span> for the values <span class="math inline">\(y(t_1), y(t_2), \ldots, y(t_N)\)</span>.</li>
+<li>The piecewise linear function defined by the points <span class="math inline">\((t_0, y_0), (t_1,y_1), \ldots, (t_N,y_N)\)</span> is then your approximation for the solution <span class="math inline">\(y(t)\)</span> on the interval <span class="math inline">\(t_0\leq t\leq t_N\)</span>.</li>
+</ul>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Example - Euler’s Method
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>For example, we can apply this idea to approximate the solution of <span class="math display">\[\frac{dy}{dt}=y-t\]</span> on the interval <span class="math inline">\(0\leq t \leq 2\)</span>, assuming that <span class="math inline">\(y(0)=0.5\)</span>. Using four steps (<span class="math inline">\(N=4\)</span>):</p>
+<table class="caption-top table">
+<caption>Euler’s Method, <span class="math inline">\(N=4\)</span></caption>
+<colgroup>
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 40%">
+<col style="width: 40%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Step <span class="math inline">\(k\)</span></th>
+<th><span class="math inline">\(t_k\)</span></th>
+<th><span class="math inline">\(y_k\)</span></th>
+<th><span class="math inline">\(dy/dt\bigr\rvert_{(t_k,y_k)}\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td><span class="math inline">\(0\)</span></td>
+<td><span class="math inline">\(0.5\)</span></td>
+<td><span class="math inline">\(0.5-0=0.5\)</span></td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td><span class="math inline">\(0.5\)</span></td>
+<td><span class="math inline">\(0.5+0.5\cdot 0.5 = 0.75\)</span></td>
+<td><span class="math inline">\(0.75-0.5=0.25\)</span></td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(0.75+0.25\cdot0.5 = 0.875\)</span></td>
+<td><span class="math inline">\(0.875-1= -0.125\)</span></td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td><span class="math inline">\(1.5\)</span></td>
+<td><span class="math inline">\(0.875 - 0.125\cdot0.5 = 0.8125\)</span></td>
+<td><span class="math inline">\(0.8125-1.5 = -0.6875\)</span></td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td><span class="math inline">\(2\)</span></td>
+<td><span class="math inline">\(0.8125-0.6875\cdot 0.5 = 0.46875\)</span></td>
+<td><span class="math inline">\(0.46875 - 2 = -1.53125\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>The graph below shows how the approximate solution (black) compares to the actual solution (red). The green curve illustrates the improvement in the approximate solution when we increase the number of steps used by a factor of 10.</p>
+<div id="fig-euler-ex" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-euler-ex-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/euler_u1_2.png" class="img-fluid figure-img" style="width:40.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-euler-ex-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4: Approximate Solutions from Euler’s Method
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<section id="discussion-problem-2-sprint-speed-continued." class="level3">
+<h3 class="anchored" data-anchor-id="discussion-problem-2-sprint-speed-continued.">Discussion Problem 2: Sprint Speed Continued.</h3>
 <p>Next, can we use our equation to make numerical estimates for how the value of <span class="math inline">\(v(t)\)</span> will change throughout the race. Let’s assume that <span class="math inline">\(P=10\)</span> <span class="math inline">\(m\cdot s^{-2}\)</span> and <span class="math inline">\(k=0.85\)</span> s<span class="math inline">\(^{-1}\)</span> for a particular sprinter during a race. Assume that their speed, <span class="math inline">\(v\)</span>, is <span class="math inline">\(0\)</span> <span class="math inline">\(m\cdot s^{-1}\)</span> initially at <span class="math inline">\(t=0\)</span> and that for <span class="math inline">\(t\geq 0\)</span>, their speed changes according to our model.</p>
 <p>Use the information provided to determine/estimate the following values of <span class="math inline">\(v(t)\)</span> and <span class="math inline">\(v'(t)\)</span>:</p>
 <table class="caption-top table">
