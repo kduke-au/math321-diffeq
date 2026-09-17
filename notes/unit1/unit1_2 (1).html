@@ -302,7 +302,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../notes/unit1/index.html">Unit 1: Introduction &amp; First-Order Equations</a></li><li class="breadcrumb-item"><a href="../../notes/unit1/unit1_2.html">Analyze &amp; Interpret the Model</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Analyze &amp; Interpret the Model</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -343,7 +343,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../notes/unit1/unit1_2.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../notes/unit1/unit1_2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Analyze &amp; Interpret the Model</span></a>
   </div>
 </li>
@@ -357,6 +357,12 @@ window.Quarto = {
   <div class="sidebar-item-container"> 
   <a href="../../notes/unit1/unit1_4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Qualitative Approach</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../notes/unit1/unit1_5.qmd" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Numerical Approach</span></a>
   </div>
 </li>
       </ul>
@@ -416,7 +422,7 @@ window.Quarto = {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../notes/unit1/index.html">Unit 1: Introduction &amp; First-Order Equations</a></li><li class="breadcrumb-item"><a href="../../notes/unit1/unit1_2.html">Analyze &amp; Interpret the Model</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Analyze &amp; Interpret the Model</h1>
 <p class="subtitle lead">Read Sections 1.2-4</p>
@@ -448,18 +454,14 @@ window.Quarto = {
 </ul>
 <section id="qualitative-approach---slope-fields" class="level2">
 <h2 class="anchored" data-anchor-id="qualitative-approach---slope-fields">Qualitative Approach - Slope Fields</h2>
-<p><em>Slope fields</em> are one tool that we can use to try and understand the behavior of a solution <span class="math inline">\(y(t)\)</span> and describe it qualitatively.</p>
-<div id="def-slope-field" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 1 (Slope Field)</strong></span> To create a slope field (also called a <em>direction field</em>) for the equation <span class="math inline">\(\frac{dy}{dt}=f(t,y)\)</span>:</p>
+<p>Slope fields are one tool that we can use to try and understand the behavior of a solution <span class="math inline">\(y(t)\)</span>. To create a slope field for the equation <span class="math inline">\(\frac{dy}{dt}=f(t,y)\)</span>:</p>
 <ul>
-<li><strong>Choose Grid:</strong> Select a grid of points in the <span class="math inline">\((t,y)\)</span>-plane. You want your grid to be dense enough to be informative, but not overcrowded.<br>
-</li>
-<li><strong>Draw Slopes:</strong> At each point <span class="math inline">\((t,y)\)</span> in your grid, draw a small line through that point with slope <span class="math inline">\(f(t,y)\)</span>. Each line that you draw should be roughly the same length. Choose this length so that it is easy to read how the slope changes throughout the <span class="math inline">\((t,y)\)</span>-plane, but not so long that they overlap.</li>
-<li><strong>Sketch Solutions:</strong> Once all your slopes are drawn, sit back and stare at it for a bit like a Magic Eye puzzle. Each slope really represents a tangent line. Any solution to the differential equation passing through a grid point must be tangent to the line drawn at that point. So, we can use the slope field to sketch out what a solution to the differential equation is going to look like and begin to see some of its properties.</li>
+<li>Select a grid of points in the <span class="math inline">\((t,y)\)</span>-plane.</li>
+<li>At each point <span class="math inline">\((t,y)\)</span> in your grid, draw a small line through that point with slope <span class="math inline">\(f(t,y)\)</span>.</li>
+<li>Each “slope” that you draw really represents a tangent line. Any solution passing through that point must be tangent to the line you draw at that point.</li>
+<li>Once all your slopes are drawn, sit back and stare at it for a bit like a Magic Eye puzzle.</li>
 </ul>
-</div>
-<p>If <span class="math inline">\(f(t,y)\)</span> isn’t too complicated, we may be able to guess formulas for simple solutions to the differential equation based on the slope field. (See example below.)</p>
-<p>At the very least, we can try to identify where a solution <span class="math inline">\(y(t)\)</span> will be increasing/decreasing and try to determine its <em>end behavior</em>. That is what happens to <span class="math inline">\(y(t)\)</span> in the long-run as time moves forwards (or backwards).</p>
+<p>If <span class="math inline">\(f(t,y)\)</span> isn’t too complicated, we can use the slope field to, either mentally or by hand, sketch out what a solution to the differential equation is going to look like. At the very least, try to <em>see</em> where a solution <span class="math inline">\(y(t)\)</span> will be increasing/decreasing. You may also be able to see what happens to <span class="math inline">\(y(t)\)</span> as <span class="math inline">\(t\to\infty\)</span>. Occasionally, you may even be able to guess formulas for simple solutions to the differential equation based on the slope field. (See below for an example of such a scenario.)</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -505,9 +507,9 @@ Figure&nbsp;2: Sketch of Solutions
 <section id="discussion-problem-1-sprint-speed-continued" class="level3">
 <h3 class="anchored" data-anchor-id="discussion-problem-1-sprint-speed-continued">Discussion Problem 1: Sprint Speed Continued</h3>
 <p>Recall that our model for a sprinter’s speed throughout a 100m race is given by: <span class="math display">\[m\frac{dv}{dt}=mP-kmv\]</span> where <span class="math inline">\(m\)</span> is the sprinter’s mass (in kg), <span class="math inline">\(P\)</span> represents the max effort acceleration a sprinter can achieve (in m/s<span class="math inline">\(^2\)</span>), and <span class="math inline">\(k\)</span> is the proportionality constant for the resistive force (in s<span class="math inline">\(^{-1}\)</span>).</p>
-<p>Create a slope field for this differential equation and use it to help you answer the following:</p>
+<p>We will start by analyzing it qualitatively:</p>
 <ol type="a">
-<li>Describe how the sprinter’s speed is expected to change throughout the race according to the model. Will it increase? decrease? remain constant?</li>
+<li>Describe how the sprinter’s speed is expected to change throughout the race according to the model. Will it increase? decrease?</li>
 <li>Describe how the sprinter’s acceleration is expected to change throughout the race.</li>
 <li>Sketch a graph of <span class="math inline">\(v(t)\)</span>. What do you expect to happen to <span class="math inline">\(v(t)\)</span> in the long run, i.e.&nbsp;what is <span class="math display">\[\lim_{t\to\infty}v(t)?\]</span> What is the practical significance of this?</li>
 </ol>
@@ -550,12 +552,11 @@ Figure&nbsp;3: Slope Field Sketch of Sprint Speed
 </section>
 <section id="numerical-approach---eulers-method" class="level2">
 <h2 class="anchored" data-anchor-id="numerical-approach---eulers-method">Numerical Approach - Euler’s Method</h2>
-<p>When sketching solutions using a slope field, we start at a particular point <span class="math inline">\((t_0, y_0)\)</span>, then move forward (or backward) by allowing the slopes to “push” the solution in a particular direction. <em>Euler’s method</em> makes this idea a little more precise by turning it in to a sequence of computations.</p>
+<p>When sketching solutions using a slope field, we start at a particular point, then move forward by allowing the slopes to “push” the solution in a particular direction. <em>Euler’s method</em> makes this idea a little more precise by turning it in to a sequence of computations.</p>
 <p>The main idea—to approximate a solution <span class="math inline">\(y(t)\)</span> for the differential equation <span class="math display">\[\frac{dy}{dt}=f(t,y):\]</span></p>
 <ul>
-<li>Choose <span class="math inline">\((t_0, y_0)\)</span>, the starting point in the <span class="math inline">\((t,y)\)</span>-plane. If you are solving an <em>initial value problem</em>, this initial point is given in the problem.</li>
-<li>Specify an ending time <span class="math inline">\(t_N&gt;t_0\)</span>.<br>
-</li>
+<li>Choose <span class="math inline">\((t_0, y_0)\)</span>, the starting point in the <span class="math inline">\((t,y)\)</span>-plane. If you are solving an initial value problem, use the indicated starting point.</li>
+<li>Specify an ending time <span class="math inline">\(t_N&gt;t_0\)</span>.</li>
 <li>Choose <span class="math inline">\(N\)</span>, the total number of steps you will be using to get from <span class="math inline">\(t_0\)</span> to <span class="math inline">\(t_N\)</span>.</li>
 <li>Use linear approximation to recursively generate a sequence of estimates <span class="math inline">\(y_1, y_2, \ldots, y_N\)</span> for the values <span class="math inline">\(y(t_1), y(t_2), \ldots, y(t_N)\)</span>.</li>
 <li>The piecewise linear function defined by the points <span class="math inline">\((t_0, y_0), (t_1,y_1), \ldots, (t_N,y_N)\)</span> is then your approximation for the solution <span class="math inline">\(y(t)\)</span> on the interval <span class="math inline">\(t_0\leq t\leq t_N\)</span>.</li>
@@ -638,14 +639,14 @@ Figure&nbsp;4: Approximate Solutions from Euler’s Method
 </div>
 <p>This process can be stated more formally as follows:</p>
 <div id="def-euler" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 2 (Euler’s Method)</strong></span> To create an approximate solution for the initial value problem <span class="math display">\[\frac{dy}{dt}=f(t,y), \quad y(t_0)=y_0 \]</span> on the interval <span class="math inline">\(t_0\leq t\leq t_N\)</span>:</p>
+<p><span class="theorem-title"><strong>Definition 1 (Euler’s Method)</strong></span> To create an approximate solution for the initial value problem <span class="math display">\[\frac{dy}{dt}=f(t,y), \quad y(t_0)=y_0 \]</span> on the interval <span class="math inline">\(t_0\leq t\leq t_N\)</span>:</p>
 <p><strong>Initialization:</strong> Choose <span class="math inline">\(N\)</span>, the number of steps that will be used in the approximation. This determines the <em>time step</em> for each step of the procedure, <span class="math inline">\(\Delta t = \frac{t_N-t_0}{N}\)</span>. The initial value <span class="math inline">\(y(t_0)=y_0\)</span> and time interval for the approximate solution <span class="math inline">\(t_0\leq t\leq t_N\)</span> may also need to be chosen if not given by the problem.</p>
 <p><strong>Computations:</strong> For <span class="math inline">\(k=1,\ldots N\)</span>, we approximate the value of <span class="math inline">\(y(t_k)\)</span> by <span class="math display">\[y(t_k)\approx y_k = y_{k-1}+f(t_{k-1},y_{k-1})\cdot \Delta t, \quad\text{where } t_k=t_{k-1}+\Delta t\]</span></p>
 <p><strong>Final Output:</strong> Once the <span class="math inline">\(y_k\)</span> are computed, the approximate solution <span class="math inline">\(\widetilde{y}(t)\)</span> is the piecewise linear function on <span class="math inline">\(t_0\leq t\leq t_N\)</span> connecting the points <span class="math inline">\((t_k, y_k)\)</span>; that is, for <span class="math inline">\(k=1,\ldots N\)</span>, on the <span class="math inline">\(k\)</span>-th subinterval: <span class="math display">\[\widetilde{y}(t)=y_{k-1}+f(t_{k-1},y_{k-1})\cdot(t-t_{k-1}), \quad\text{for } t_{k-1}\leq t\leq t_k\]</span></p>
 </div>
 <section id="discussion-problem-2-sprint-speed-continued." class="level3">
 <h3 class="anchored" data-anchor-id="discussion-problem-2-sprint-speed-continued.">Discussion Problem 2: Sprint Speed Continued.</h3>
-<p>Next, can we use our model <span class="math display">\[\frac{dv}{dt}=P-kv\]</span> to make numerical estimates for how the value of a sprinter’s speed will change throughout the race. Let’s assume that <span class="math inline">\(P=10\)</span> <span class="math inline">\(m\cdot s^{-2}\)</span> and <span class="math inline">\(k=0.85\)</span> s<span class="math inline">\(^{-1}\)</span> for a particular sprinter during a race. Assume that their speed, <span class="math inline">\(v\)</span>, is <span class="math inline">\(0\)</span> <span class="math inline">\(m\cdot s^{-1}\)</span> initially at <span class="math inline">\(t=0\)</span> and that for <span class="math inline">\(t\geq 0\)</span>, their speed changes according to our model.</p>
+<p>Next, can we use our equation to make numerical estimates for how the value of <span class="math inline">\(v(t)\)</span> will change throughout the race. Let’s assume that <span class="math inline">\(P=10\)</span> <span class="math inline">\(m\cdot s^{-2}\)</span> and <span class="math inline">\(k=0.85\)</span> s<span class="math inline">\(^{-1}\)</span> for a particular sprinter during a race. Assume that their speed, <span class="math inline">\(v\)</span>, is <span class="math inline">\(0\)</span> <span class="math inline">\(m\cdot s^{-1}\)</span> initially at <span class="math inline">\(t=0\)</span> and that for <span class="math inline">\(t\geq 0\)</span>, their speed changes according to our model.</p>
 <p>Use the information provided to determine/estimate the following values of <span class="math inline">\(v(t)\)</span> and <span class="math inline">\(v'(t)\)</span>:</p>
 <table class="caption-top table">
 <thead>
@@ -799,48 +800,23 @@ Figure&nbsp;4: Approximate Solutions from Euler’s Method
 </section>
 <section id="analytical-approach---separation-of-variables" class="level2">
 <h2 class="anchored" data-anchor-id="analytical-approach---separation-of-variables">Analytical Approach - Separation of Variables</h2>
-<p>The method of <em>separation of variables</em> is an example of one technique we can use to try and find formulas for solutions to differential equations.</p>
-<div id="def-sep-of-var" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 3 (Separation of Variables)</strong></span> If a differential equation is <em>separable</em>, that is, it can be written as the product of a function in <span class="math inline">\(t\)</span> and a function in <span class="math inline">\(y\)</span> <span class="math display">\[ \frac{dy}{dt}=f(t,y)=g(t)h(y), \]</span> then we can use the following method to try and find a formula for a solution:</p>
+<p>The method of <em>separation of variables</em> is an example of one technique we can use to try and find formulas for solutions to differential equations. This technique only works on <em>separable</em> equations, that is equations that can be separated as the product of a function in <span class="math inline">\(t\)</span> and a function in <span class="math inline">\(y\)</span>: <span class="math display">\[\frac{dy}{dt} = f(t,y) = g(t)h(y)\]</span></p>
+<p>The steps in this method are:</p>
 <ul>
 <li><strong>Separate.</strong> Move things around so that you have your <span class="math inline">\(y\)</span> terms and <span class="math inline">\(t\)</span> terms on separate sides of the equation <span class="math display">\[\frac{1}{h(y)}dy = g(t)dt \]</span></li>
 <li><strong>Integrate.</strong> Find general antiderivatives for both sides of the equation. Since the constants of integration can be combined, we generally only write “+ C” on the time side: <span class="math display">\[\int\frac{1}{h(y)}dy =\int g(t)dt \Rightarrow H(y) = G(t) + C \]</span></li>
 <li><strong>Isolate.</strong> Use algebra to get <span class="math inline">\(y\)</span> by itself. <span class="math display">\[y(t)= H^{-1}(G(t)+C)\]</span></li>
-<li><strong>Solve for C.</strong> For initial value problems, substitute the initial condition <span class="math inline">\((t_0, y_0)\)</span> into the equation in order to solve for <span class="math inline">\(C\)</span>.</li>
-</ul>
-</div>
-<p>The step where we separate the variables should look odd. We are treating <span class="math inline">\(\frac{dy}{dt}\)</span> as a fraction when it is not. This algebraic maneuvering is really shorthand for manipulations that are based on the chain rule. See the explanation below if you want more details.</p>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Explanation - Separation Step
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Recall that when you see <span class="math inline">\(y\)</span> in the differential equation, it is a function of <span class="math inline">\(t\)</span>. In the separation step, what is really going on is that we are rewriting the equation as <span class="math display">\[ \frac{1}{h(y(t))}\cdot y'(t)= g(t) \]</span> When integrating the left-hand side, we use a change of variables and let <span class="math inline">\(u=y(t)\)</span>. Then, we have: <span class="math display">\[ \int \frac{1}{h(y(t))}y'(t)\,dt = \int \frac{1}{h(u)}\,du\]</span></p>
-</div>
-</div>
-</div>
-<p>The method doesn’t always work. For example:</p>
-<ul>
-<li>We are assuming <span class="math inline">\(h(y)\neq 0\)</span> when we separate. If <span class="math inline">\(h(y)\)</span> can equal 0, we may be ignoring some solutions.</li>
-<li>We may not be able to find a closed-form antiderivative when we integrate either side.</li>
-<li>We may not be able to isolate <span class="math inline">\(y\)</span> and end up with an equation defining an implicit relationship between <span class="math inline">\(y\)</span> and <span class="math inline">\(t\)</span>.</li>
+<li><strong>Initial Condition.</strong> For initial value problems, substitute the initial condition <span class="math inline">\((t_0, y_0)\)</span> into the equation in order to solve for <span class="math inline">\(C\)</span>.</li>
 </ul>
 <section id="discussion-problem-3-analytical-analysis." class="level3">
 <h3 class="anchored" data-anchor-id="discussion-problem-3-analytical-analysis.">Discussion Problem 3: Analytical Analysis.</h3>
-<p>Our model for how sprint speed will change throughout the race: <span class="math display">\[\frac{dv}{dt}=P-kv\]</span></p>
+<p>Our model for how sprint speed will change throughout the race:</p>
 <ol type="a">
 <li>Use separation of variables this technique to solve the equation.</li>
 <li>Once you have your general solution, try and solve the <em>initial value problem</em>, where we are looking for a solution to the equation such that <span class="math inline">\(v(0)=0\)</span>.</li>
 </ol>
 <div class="callout callout-style-default callout-tip no-icon callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -849,7 +825,7 @@ Figure&nbsp;4: Approximate Solutions from Euler’s Method
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="a">
 <li><p>Starting again from <span class="math inline">\(\frac{dv}{dt}=P-kv\)</span>, we separate variables: <span class="math display">\[\frac{1}{P-kv}\,dv = dt\]</span> Integrating both sides (folding the constant of integration into the time side): <span class="math display">\[-\frac{1}{k}\ln|P-kv| = t+C\]</span> Solving for <span class="math inline">\(v\)</span>: <span class="math display">\[|P-kv| = e^{-k(t+C)} = e^{-kC}e^{-kt}\]</span> Since <span class="math inline">\(e^{-kC}\)</span> is just some positive constant, we can drop the absolute value by allowing our constant to take either sign: <span class="math display">\[P-kv = Be^{-kt} \quad\Rightarrow\quad v(t) = \frac{P}{k}-\frac{B}{k}e^{-kt}\]</span> Renaming <span class="math inline">\(B/k\)</span> as our arbitrary constant <span class="math inline">\(A\)</span>, our general solution is <span class="math display">\[v(t) = \frac{P}{k}-Ae^{-kt}\]</span></p></li>
@@ -925,7 +901,7 @@ Figure&nbsp;4: Approximate Solutions from Euler’s Method
 <li>Alfred’s reaction time was <span class="math inline">\(0.14\)</span>s and Lyles’ was <span class="math inline">\(0.18\)</span>s. Their race data has been loaded into Desmos <a href="https://www.desmos.com/calculator/zt025mreaf">here</a>. Using your general formula for <span class="math inline">\(x(t)\)</span> and the curve fitting tool in Desmos, determine the values of <span class="math inline">\(P\)</span> and <span class="math inline">\(k\)</span> that best fit the data.</li>
 </ol>
 <div class="callout callout-style-default callout-tip no-icon callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -934,12 +910,12 @@ Figure&nbsp;4: Approximate Solutions from Euler’s Method
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="a">
-<li><p>To factor in reaction time, we can adjust the initial condition. So, if the runner actually starts running at <span class="math inline">\(t_0&gt;0\)</span>, we look for the solution such that <span class="math inline">\(y(t_0)=0\)</span>. This is equivalent to shifting the solution we found in Problem 2 by <span class="math inline">\(t_0\)</span>: <span class="math display">\[v(t)= \dfrac{P}{k}\left(1-e^{-k(t-t_0)}\right)\]</span></p></li>
+<li><p>Our model assumes the sprinter starts <em>running</em> (i.e.&nbsp;<span class="math inline">\(v=0\)</span> and accelerating according to our equation) at <span class="math inline">\(t=0\)</span>. In reality, each sprinter’s clock starts at the gun, but they don’t begin accelerating until their reaction time <span class="math inline">\(t_0\)</span> has elapsed. We can account for this by shifting our solution in time: it’s valid starting at <span class="math inline">\(t=t_0\)</span> rather than <span class="math inline">\(t=0\)</span>, so wherever <span class="math inline">\(t\)</span> appears in our formula from Discussion Problem 3b, we should use <span class="math inline">\(t-t_0\)</span> (the <em>time since the sprinter started running</em>) in its place.</p></li>
 <li><p>Since <span class="math inline">\(x(t) = \int v(t)\,dt\)</span>, and (using our answer to part a) <span class="math inline">\(v(t) = \dfrac{P}{k}\left(1-e^{-k(t-t_0)}\right)\)</span> for <span class="math inline">\(t&gt;t_0\)</span>, with <span class="math inline">\(x(t_0)=0\)</span>: <span class="math display">\[x(t) = \int_{t_0}^{t}\frac{P}{k}\left(1-e^{-k(s-t_0)}\right)\,ds = \frac{P}{k}(t-t_0) - \frac{P}{k}\left[-\frac{1}{k}e^{-k(s-t_0)}\right]_{t_0}^{t}\]</span> <span class="math display">\[x(t) = \frac{P}{k}(t-t_0) - \frac{P}{k^2}\left(1-e^{-k(t-t_0)}\right), \quad t&gt;t_0\]</span></p></li>
-<li><p>Plugging each sprinter’s reaction time <span class="math inline">\(t_0\)</span> into the formula from part b and using Desmos’s curve-fitting/regression tool against the <span class="math inline">\((t,x)\)</span> data provided, you should be able to obtain a best-fit pair of values <span class="math inline">\((P,k)\)</span> for each sprinter. <a href="https://www.desmos.com/calculator/zt025mreaf">The model fits the data fairly well.</a> Look for any points that appear more off than others and try to think about what may have caused the deviation.</p></li>
+<li><p>Plugging each sprinter’s reaction time <span class="math inline">\(t_0\)</span> into the formula from part b and using Desmos’s curve-fitting/regression tool against the <span class="math inline">\((t,x)\)</span> data provided, you should be able to obtain a best-fit pair of values <span class="math inline">\((P,k)\)</span> for each sprinter. Since the exact fitted values depend on the details of your regression setup, you may not get precisely the same numbers as your classmates — but you should find that Lyles’ fitted values produce a <em>larger</em> terminal velocity <span class="math inline">\(P/k\)</span> than Alfred’s, consistent with him running the faster of the two races.</p></li>
 </ol>
 </div>
 </div>
@@ -1037,7 +1013,7 @@ Figure&nbsp;4: Approximate Solutions from Euler’s Method
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/kduke-au\.github\.io\/math321-diffeq\/");
+        var filterRegex = new RegExp('/' + window.location.host + '/');
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

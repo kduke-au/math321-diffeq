@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Unit 4 Overview – Math 321 - Differential Equations</title>
+<title>Euler’s Method, Error and Improvements – Math 321 - Differential Equations</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -77,6 +77,35 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <meta name="quarto:status" content="draft">
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -274,7 +303,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Unit 4 Overview</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../notes/unit1/index.html">Unit 1: Introduction &amp; First-Order Equations</a></li><li class="breadcrumb-item"><a href="../../notes/unit1/unit1_5.html">Numerical Approach</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -361,9 +390,10 @@ ul.task-list li input[type="checkbox"] {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../notes/unit1/index.html">Unit 1: Introduction &amp; First-Order Equations</a></li><li class="breadcrumb-item"><a href="../../notes/unit1/unit1_5.html">Numerical Approach</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Unit 4 Overview</h1>
+<h1 class="title">Euler’s Method, Error and Improvements</h1>
+<p class="subtitle lead">Read Sections 1.4, 7.1-3</p>
 </div>
 
 
@@ -380,7 +410,19 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Content coming soon.</p>
+<p>Recall Euler’s Method from our previous discussions:</p>
+<div id="def-euler" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1 (Euler’s Method)</strong></span> To create an approximate solution for the initial value problem <span class="math display">\[\frac{dy}{dt}=f(t,y), \quad y(t_0)=y_0 \]</span> on the interval <span class="math inline">\(t_0\leq t\leq t_N\)</span>:</p>
+<p><strong>Initialization:</strong> Choose <span class="math inline">\(N\)</span>, the number of steps that will be used in the approximation. This determines the <em>time step</em> for each step of the procedure, <span class="math inline">\(\Delta t = \frac{t_N-t_0}{N}\)</span>. The initial value <span class="math inline">\(y(t_0)=y_0\)</span> and time interval for the approximate solution <span class="math inline">\(t_0\leq t\leq t_N\)</span> may also need to be chosen if not given by the problem.</p>
+<p><strong>Computations:</strong> For <span class="math inline">\(k=1,\ldots N\)</span>, we approximate the value of <span class="math inline">\(y(t_k)\)</span> by <span class="math display">\[y(t_k)\approx y_k = y_{k-1}+f(t_{k-1},y_{k-1})\cdot \Delta t, \quad\text{where } t_k=t_{k-1}+\Delta t\]</span></p>
+<p><strong>Final Output:</strong> Once the <span class="math inline">\(y_k\)</span> are computed, the approximate solution <span class="math inline">\(y_N(t)\)</span> is the piecewise linear function on <span class="math inline">\(t_0\leq t\leq t_N\)</span> connecting the points <span class="math inline">\((t_k, y_k)\)</span>; that is, for <span class="math inline">\(k=1,\ldots N\)</span>, on the <span class="math inline">\(k\)</span>-th subinterval: <span class="math display">\[y_N(t)=y_{k-1}+f(t_{k-1},y_{k-1})\cdot(t-t_{k-1}), \quad\text{for } t_{k-1}\leq t\leq t_k\]</span></p>
+</div>
+<p>This approach to finding an approximate solution makes a few subtle assumptions:</p>
+<ul>
+<li>A solution <span class="math inline">\(y(t)\)</span> actually <em>exists</em> on the interval <span class="math inline">\(t_0\leq t\leq t_N\)</span>.</li>
+<li>A <em>unique</em> solution exists on this interval.</li>
+<li>Our approximations <span class="math inline">\(y_N(t)\)</span> will converge to <span class="math inline">\(y(t)\)</span> as <span class="math inline">\(N\to\infty\)</span>.</li>
+</ul>
 
 
 
