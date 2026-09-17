@@ -1,0 +1,28 @@
+---
+title: "Euler's Method, Error and Improvements"
+subtitle: 'Read Sections 1.4, 7.1-3'
+sidebar: notes
+---
+
+Recall Euler's Method from our previous discussions:
+
+::: {#def-euler}
+
+## Euler's Method
+To create an approximate solution for the initial value problem $$\frac{dy}{dt}=f(t,y), \quad y(t_0)=y_0 $$ on the interval $t_0\leq t\leq t_N$:
+
+**Initialization:** Choose $N$, the number of steps that will be used in the approximation. This determines the *time step* for each step of the procedure, $\Delta t = \frac{t_N-t_0}{N}$. The initial value $y(t_0)=y_0$ and time interval for the approximate solution $t_0\leq t\leq t_N$ may also need to be chosen if not given by the problem.
+
+**Computations:** For $k=1,\ldots N$, we approximate the value of $y(t_k)$ by
+$$y(t_k)\approx y_k = y_{k-1}+f(t_{k-1},y_{k-1})\cdot \Delta t, \quad\text{where } t_k=t_{k-1}+\Delta t$$
+
+**Final Output:** Once the $y_k$ are computed, the approximate solution $y_N(t)$ is the piecewise linear function on $t_0\leq t\leq t_N$ connecting the points $(t_k, y_k)$; that is, for $k=1,\ldots N$, on the $k$-th subinterval:
+$$y_N(t)=y_{k-1}+f(t_{k-1},y_{k-1})\cdot(t-t_{k-1}), \quad\text{for } t_{k-1}\leq t\leq t_k$$
+:::
+
+This approach to finding an approximate solution makes a few subtle assumptions:
+
+- A solution $y(t)$ actually *exists* on the interval $t_0\leq t\leq t_N$.
+- A *unique* solution exists on this interval.
+- Our approximations $y_N(t)$ will converge to $y(t)$ as $N\to\infty$.
+

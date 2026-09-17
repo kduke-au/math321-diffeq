@@ -12,6 +12,30 @@
   margin-top: 1rem;
 }
 
+.definition {
+padding: 0.5em 1em;
+margin: 1em 0;
+border-left: 4px solid #ffc107;
+background-color: transparent;  
+}
+
+.definition-title {
+font-weight: 600;
+color: var(--bs-heading-color, #212529);  
+}
+
+.theorem {
+padding: 0.5em 1em;
+margin: 1em 0;
+border-left: 4px solid #dc3545;
+background-color: transparent;  
+}
+
+.theorem-title {
+font-weight: 600;
+color: var(--bs-heading-color, #212529);  
+}
+
 /* Changing colors for highlighting links
 
 a {

@@ -3,16 +3,16 @@ title: 'Existence & Uniqueness'
 subtitle: 'Read Section 1.5'
 sidebar: notes
 --- 
-Before analyzing an initial value problem (IVP)
-$$\frac{dy}{dt}=f(t,y), \quad y(t_0)=y_0$$
 
-qualitatively or numerically, it is important to know the answer to two *analytic* questions: 
+## Existence
+
+Before we try to analyze a inital value problem like: $$\frac{dy}{dt}=f(t,y), \quad y(t_0)=y_0$$
+using a qualitative or numerical approach, it is important to know the answer to two questions: 
 
  - Does a solution exist? 
- - Are solutions unique?
+ - Are solutions unique? 
 
-# Existence
-Answering *yes* to the first question means that there is a function $y(t)$ defined on some *open interval*^[An interval is *open* if it doesn't include its endpoints; i.e. it can be written as $(a,b)$ or $a<t<b$ where $a$ and $b$ are either values or $\pm\infty$.] $I\subset \mathbb R$ containing $t_0$ that satisfies both the initial condition and the differential equation for all $t$ in the interval $I$.
+Answering *yes* to the first question means that there is a function $y(t)$ defined on some open interval $I\subset \mathbb R$ containing $t_0$ that satisfies both the initial condition and the differential equation for all $t$ in the interval $I$.
 
 The following example illustrates what can go wrong.
 
@@ -27,28 +27,10 @@ has no solution when $t_0=0$.
 :::{.callout-tip collapse="true" icon=false}
 ### Answer:
 (a) Rewriting the equation as $y\cdot\frac{dy}{dt}=1$, notice that if $y(t_0)=y_0=0$, then plugging into the equation gives
-$$0\cdot\frac{dy}{dt}\bigg\rvert_{t_0} = 0 \ne 1.$$
-Therefore, if $y(t)$ is a solution to the differential equation, it can never equal 0.
+$$0\cdot\frac{dy}{dt}\bigg\rvert_{t_0} = 0 \ne 1$$
+no matter what value $\frac{dy}{dt}\bigr\rvert_{t_0}$ takes. So there's no way for a function satisfying $y(t_0)=0$ to also satisfy the differential equation at $t_0$ --- the two conditions are simply incompatible, and no solution can exist.
 
-    Alternatively, if we rewrite the equation in standard form
-    $$\frac{dy}{dt}=\frac{1}{y}$$
-    we can see the source of the problem---the slopes of any solution become infinite near $y=0$.
-
-(b) For $t<0$, any solution is of the form $y^-(t)=-t+C^-$. For $t>0$, any solution is of the form $y^+(t)=t+C^+$.
-
-    So, if $y(t)$ is a continuous function defined on some open interval around $t=0$ such that $y(0)=y_0$ and such that it is a solution for the differential equation for $t<0$ and $t>0$, we must be able to write it as $y(t)=|t|+y_0$. This function is not differentiable at $t=0$ and cannot be a solution to the IVP. Therefore, there is no solution.
-
-:::
-
-These examples illustrate that, if there are points in the $(t_0,y_0)$-plane where the slope field does not vary *nicely*, it may not be possible to find a solution that is differentiable at that point, and hence cannot be a solution in the strict sense that we have defined.
-
-The following theorem provides the necessary conditions on how nice the slope field needs to be in order to guarantee the existence of a solution.
-
-::: {#thm-existence}
-## Existence
-If there is a neighborhood 
-$$\mathcal N = \{(t,y): a<t<b, c<y<d\}$$
-containing the point $(t_0,y_0)$ such that $f(t,y)$ is continuous on $\mathcal N$, then there is a  function $y(t)$ defined on some interval $\mathcal I$ containing $t_0$ such that $y(t_0)=y_0$ and $$\frac{dy}{dt} = f(t,y)$$ on $\mathcal I$.   
+(b) Away from $t=0$, we can integrate directly: for $t>0$, $\frac{dy}{dt}=1$, and for $t<0$, $\frac{dy}{dt}=-1$. Matching these to a common value $y(0)=y_0$ forces $y(t)=y_0+|t|$. But $|t|$ has a corner at $t=0$ and is not differentiable there, so no function can have derivative equal to $\text{sign}(t)$ *at* $t=0$ itself (since $\text{sign}(0)$ isn't even defined). This means there is no solution defined on any open interval containing $t_0=0$.
 :::
 
 **Warning:** If a solution exists, it does not necessarily mean it will be defined for all time!
@@ -90,3 +72,4 @@ Using $y(1)=0$ gives $C=-1$, so
 $$y_2(t) = \left(\frac{t-1}{3}\right)^3$$
 You can check directly that $y_2$ also satisfies both the differential equation and the initial condition. Since $y_1$ and $y_2$ are both valid solutions to the *same* initial value problem, this example shows that solutions to $\frac{dy}{dt}=y^{2/3}$ are **not** unique --- in fact, infinitely many other solutions (that follow $y_1$ for a while, then "peel off" onto a shifted copy of $y_2$) exist as well!
 :::
+

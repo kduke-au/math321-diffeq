@@ -3,7 +3,6 @@ title: 'Analyze & Interpret the Model'
 subtitle: Read Sections 1.2-4
 sidebar: notes
 --- 
-
 Once we have converted our question into a clearly stated, well-defined math problem, we can begin to analyze it.
 
 # Step 2: Analyze the Model
@@ -14,21 +13,14 @@ Just like in calculus, we use a three-pronged approach to analyze differential e
 - **Analytical Approach.** Do we know a solution exists? Given some initial state, is the solution unique? Is it possible to actually extract a formula for the model?
 
 ## Qualitative Approach - Slope Fields
-*Slope fields* are one tool that we can use to try and understand the behavior of a solution $y(t)$ and describe it qualitatively. 
+Slope fields are one tool that we can use to try and understand the behavior of a solution $y(t)$. To create a slope field for the equation $\frac{dy}{dt}=f(t,y)$:
 
-::: {#def-slope-field}
-### Slope Field 
-To create a slope field (also called a *direction field*) for the equation $\frac{dy}{dt}=f(t,y)$:
+- Select a grid of points in the $(t,y)$-plane.
+- At each point $(t,y)$ in your grid, draw a small line through that point with slope $f(t,y)$.
+- Each "slope" that you draw really represents a tangent line. Any solution passing through that point must be tangent to the line you draw at that point.
+- Once all your slopes are drawn, sit back and stare at it for a bit like a Magic Eye puzzle.
 
-- **Choose Grid:** Select a grid of points in the $(t,y)$-plane. You want your grid to be dense enough to be informative, but not overcrowded.   
-- **Draw Slopes:** At each point $(t,y)$ in your grid, draw a small line through that point with slope $f(t,y)$. Each line that you draw should be roughly the same length. Choose this length so that it is easy to read how the slope changes throughout the $(t,y)$-plane, but not so long that they overlap.
-- **Sketch Solutions:** Once all your slopes are drawn, sit back and stare at it for a bit like a Magic Eye puzzle. Each slope really represents a tangent line. Any solution to the differential equation passing through a grid point must be tangent to the line drawn at that point. So, we can use the slope field to sketch out what a solution to the differential equation is going to look like and begin to see some of its properties.     
-
-:::
-
-If $f(t,y)$ isn't too complicated, we may be able to guess formulas for simple solutions to the differential equation based on the slope field. (See example below.) 
-
-At the very least, we can try to identify where a solution $y(t)$ will be increasing/decreasing and try to determine its *end behavior*. That is what happens to $y(t)$ in the long-run as time moves forwards (or backwards).
+If $f(t,y)$ isn't too complicated, we can use the slope field to, either mentally or by hand, sketch out what a solution to the differential equation is going to look like. At the very least, try to *see* where a solution $y(t)$ will be increasing/decreasing. You may also be able to see what happens to $y(t)$ as $t\to\infty$. Occasionally, you may even be able to guess formulas for simple solutions to the differential equation based on the slope field. (See below for an example of such a scenario.) 
 
 :::{.callout-note collapse="true" icon=false}
 ### Example - Slope Field
@@ -56,9 +48,9 @@ We can also see how other solutions will behave relative to the one we found. If
 Recall that our model for a sprinter's speed throughout a 100m race is given by: $$m\frac{dv}{dt}=mP-kmv$$
 where $m$ is the sprinter's mass (in kg), $P$ represents the max effort acceleration a sprinter can achieve (in m/s$^2$), and $k$ is the proportionality constant for the resistive force (in s$^{-1}$). 
 
-Create a slope field for this differential equation and use it to help you answer the following: 
+We will start by analyzing it qualitatively: 
 
-a. Describe how the sprinter's speed is expected to change throughout the race according to the model. Will it increase? decrease? remain constant?
+a. Describe how the sprinter's speed is expected to change throughout the race according to the model. Will it increase? decrease?
 b. Describe how the sprinter's acceleration is expected to change throughout the race.
 c. Sketch a graph of $v(t)$. What do you expect to happen to $v(t)$ in the long run, i.e. what is $$\lim_{t\to\infty}v(t)?$$ What is the practical significance of this?
 
@@ -85,13 +77,13 @@ This tells us that, as the race goes on, the runner's speed will approach a thre
 
 ## Numerical Approach - Euler's Method
 
-When sketching solutions using a slope field, we start at a particular point $(t_0, y_0)$, then move forward (or backward) by allowing the slopes to "push" the solution in a particular direction. *Euler's method* makes this idea a little more precise by turning it in to a sequence of computations. 
+When sketching solutions using a slope field, we start at a particular point, then move forward by allowing the slopes to "push" the solution in a particular direction. *Euler's method* makes this idea a little more precise by turning it in to a sequence of computations. 
 
 The main idea---to approximate a solution $y(t)$ for the differential equation 
 $$\frac{dy}{dt}=f(t,y):$$
 
-- Choose $(t_0, y_0)$, the starting point in the $(t,y)$-plane. If you are solving an *initial value problem*, this initial point is given in the problem.
-- Specify an ending time $t_N>t_0$.  
+- Choose $(t_0, y_0)$, the starting point in the $(t,y)$-plane. If you are solving an initial value problem, use the indicated starting point. 
+- Specify an ending time $t_N>t_0$. 
 - Choose $N$, the total number of steps you will be using to get from $t_0$ to $t_N$.
 - Use linear approximation to recursively generate a sequence of estimates $y_1, y_2, \ldots, y_N$ for the values $y(t_1), y(t_2), \ldots, y(t_N)$.
 - The piecewise linear function defined by the points $(t_0, y_0), (t_1,y_1), \ldots, (t_N,y_N)$ is then your approximation for the solution $y(t)$ on the interval $t_0\leq t\leq t_N$.
@@ -119,7 +111,8 @@ The graph below shows how the approximate solution (black) compares to the actua
 This process can be stated more formally as follows:
 
 ::: {#def-euler}
-### Euler's Method
+
+## Euler's Method
 To create an approximate solution for the initial value problem $$\frac{dy}{dt}=f(t,y), \quad y(t_0)=y_0 $$ on the interval $t_0\leq t\leq t_N$:
 
 **Initialization:** Choose $N$, the number of steps that will be used in the approximation. This determines the *time step* for each step of the procedure, $\Delta t = \frac{t_N-t_0}{N}$. The initial value $y(t_0)=y_0$ and time interval for the approximate solution $t_0\leq t\leq t_N$ may also need to be chosen if not given by the problem.
@@ -133,8 +126,7 @@ $$\widetilde{y}(t)=y_{k-1}+f(t_{k-1},y_{k-1})\cdot(t-t_{k-1}), \quad\text{for } 
 
 
 ### Discussion Problem 2: Sprint Speed Continued.
-Next, can we use our model $$\frac{dv}{dt}=P-kv$$ 
-to make numerical estimates for how the value of a sprinter's speed will change throughout the race. Let's assume that $P=10$ $m\cdot s^{-2}$ and $k=0.85$ s$^{-1}$ for a particular sprinter during a race. Assume that their speed, $v$, is $0$ $m\cdot s^{-1}$ initially at $t=0$ and that for $t\geq 0$, their speed changes according to our model.
+Next, can we use our equation to make numerical estimates for how the value of $v(t)$ will change throughout the race. Let's assume that $P=10$ $m\cdot s^{-2}$ and $k=0.85$ s$^{-1}$ for a particular sprinter during a race. Assume that their speed, $v$, is $0$ $m\cdot s^{-1}$ initially at $t=0$ and that for $t\geq 0$, their speed changes according to our model.
 
 Use the information provided to determine/estimate the following values of $v(t)$ and $v'(t)$:
 
@@ -168,44 +160,24 @@ Filling in the requested table:
 Notice that our estimates for $v(t)$ *oscillate* rather than climbing smoothly toward a limiting value, and even briefly overshoot the eventual equilibrium speed $v=P/k\approx 11.76$ ms$^{-1}$ by nearly double. This is an artifact of the step size we chose: with $k\Delta t = 0.85(2) = 1.7$, our step is close to (but still comfortably below) the stability threshold $k\Delta t = 2$ for this type of equation, so our estimates zig-zag back and forth while still gradually settling toward the equilibrium. A smaller step size would smooth this out considerably --- try it and see!
 :::
 
-
 ## Analytical Approach - Separation of Variables
 
 The method of *separation of variables* is an example of one technique we can use to try and find formulas for solutions to differential equations. 
+This technique only works on *separable* equations, that is equations that can be separated as the product of a function in $t$ and a function in $y$:
+$$\frac{dy}{dt} = f(t,y) = g(t)h(y)$$
 
-:::{#def-sep-of-var}
-### Separation of Variables
-If a differential equation is *separable*, that is, it can be written as the product of a function in $t$ and a function in $y$
-$$ \frac{dy}{dt}=f(t,y)=g(t)h(y), $$
-then we can use the following method to try and find a formula for a solution:
+The steps in this method are:
     
 - **Separate.** Move things around so that you have your $y$ terms and $t$ terms on separate sides of the equation
 $$\frac{1}{h(y)}dy = g(t)dt $$
 - **Integrate.** Find general antiderivatives for both sides of the equation. Since the constants of integration can be combined, we generally only write "+ C" on the time side:
-    $$\int\frac{1}{h(y)}dy =\int g(t)dt \Rightarrow H(y) = G(t) + C $$
+$$\int\frac{1}{h(y)}dy =\int g(t)dt \Rightarrow H(y) = G(t) + C $$
 - **Isolate.** Use algebra to get $y$ by itself.
-    $$y(t)= H^{-1}(G(t)+C)$$
-- **Solve for C.** For initial value problems, substitute the initial condition $(t_0, y_0)$ into the equation in order to solve for $C$.
-::: 
-
-The step where we separate the variables should look odd. We are treating $\frac{dy}{dt}$ as a fraction when it is not. This algebraic maneuvering is really shorthand for manipulations that are based on the chain rule. See the explanation below if you want more details.
-
-:::{.callout-note collapse="true" icon=false}
-### Explanation - Separation Step
-Recall that when you see $y$ in the differential equation, it is a function of $t$. In the separation step, what is really going on is that we are rewriting the equation as 
-$$ \frac{1}{h(y(t))}\cdot y'(t)= g(t) $$
-When integrating the left-hand side, we use a change of variables and let $u=y(t)$. Then, we have:
-$$ \int \frac{1}{h(y(t))}y'(t)\,dt = \int \frac{1}{h(u)}\,du$$
-:::
-
-The method doesn't always work. For example:
-
-- We are assuming $h(y)\neq 0$ when we separate. If $h(y)$ can equal 0, we may be ignoring some solutions.
-- We may not be able to find a closed-form antiderivative when we integrate either side.
-- We may not be able to isolate $y$ and end up with an equation defining an implicit relationship between $y$ and $t$.  
+$$y(t)= H^{-1}(G(t)+C)$$
+- **Initial Condition.** For initial value problems, substitute the initial condition $(t_0, y_0)$ into the equation in order to solve for $C$. 
 
 ### Discussion Problem 3: Analytical Analysis.
-Our model for how sprint speed will change throughout the race: $$\frac{dv}{dt}=P-kv$$
+Our model for how sprint speed will change throughout the race:
 
 a. Use separation of variables this technique to solve the equation. 
 b. Once you have your general solution, try and solve the *initial value problem*, where we are looking for a solution to the equation such that $v(0)=0$.
@@ -257,12 +229,11 @@ c. Alfred's reaction time was $0.14$s and Lyles' was $0.18$s. Their race data ha
 
 :::{.callout-tip collapse="true" icon=false}
 ### Answer:
-a. To factor in reaction time, we can adjust the initial condition. So, if the runner actually starts running at $t_0>0$, we look for the solution such that $y(t_0)=0$. This is equivalent to shifting the solution we found in Problem 2 by $t_0$: 
-$$v(t)= \dfrac{P}{k}\left(1-e^{-k(t-t_0)}\right)$$
+a. Our model assumes the sprinter starts *running* (i.e. $v=0$ and accelerating according to our equation) at $t=0$. In reality, each sprinter's clock starts at the gun, but they don't begin accelerating until their reaction time $t_0$ has elapsed. We can account for this by shifting our solution in time: it's valid starting at $t=t_0$ rather than $t=0$, so wherever $t$ appears in our formula from Discussion Problem 3b, we should use $t-t_0$ (the *time since the sprinter started running*) in its place.
 
 b. Since $x(t) = \int v(t)\,dt$, and (using our answer to part a) $v(t) = \dfrac{P}{k}\left(1-e^{-k(t-t_0)}\right)$ for $t>t_0$, with $x(t_0)=0$:
 $$x(t) = \int_{t_0}^{t}\frac{P}{k}\left(1-e^{-k(s-t_0)}\right)\,ds = \frac{P}{k}(t-t_0) - \frac{P}{k}\left[-\frac{1}{k}e^{-k(s-t_0)}\right]_{t_0}^{t}$$
 $$x(t) = \frac{P}{k}(t-t_0) - \frac{P}{k^2}\left(1-e^{-k(t-t_0)}\right), \quad t>t_0$$
 
-c. Plugging each sprinter's reaction time $t_0$ into the formula from part b and using Desmos's curve-fitting/regression tool against the $(t,x)$ data provided, you should be able to obtain a best-fit pair of values $(P,k)$ for each sprinter. [The model fits the data fairly well.](https://www.desmos.com/calculator/zt025mreaf) Look for any points that appear more off than others and try to think about what may have caused the deviation.
+c. Plugging each sprinter's reaction time $t_0$ into the formula from part b and using Desmos's curve-fitting/regression tool against the $(t,x)$ data provided, you should be able to obtain a best-fit pair of values $(P,k)$ for each sprinter. Since the exact fitted values depend on the details of your regression setup, you may not get precisely the same numbers as your classmates --- but you should find that Lyles' fitted values produce a *larger* terminal velocity $P/k$ than Alfred's, consistent with him running the faster of the two races.
 :::

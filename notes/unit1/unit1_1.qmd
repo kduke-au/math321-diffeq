@@ -5,11 +5,11 @@ sidebar: notes
 --- 
 To introduce the course, we are going to start with an example that illustrates the process for modeling relationships between variables with differential equations. Before diving into our example, two questions need to be addressed:
 
-## What is a Differential Equation?
+# What is a Differential Equation?
 A *differential equation* establishes a relationship between one or more variables and their rates of change. You are already familiar with one type of differential equation from calculus:
 
 ::: {.callout-note appearance="minimal" icon=false}
-### Example: Antiderivatives
+## Example: Antiderivatives
 
 Given a continuous function $f(t)$, find all functions $y(t)$ such that $$\frac{dy}{dt}=f(t)$$ for all $t$ in some interval.
 :::
@@ -18,25 +18,25 @@ In your calc classes, you likely saw three techniques for finding $y(t)$:
 
 1. **Qualitative Approach: Curve Sketching.** 
 
-Since $f(t)$ shows us the *slope* of $y(t)$, we can deduce enough information from $f(t)$ to sketch out a graph illustrating the behavior of $y(t)$ like:
+    Since $f(t)$ shows us the *slope* of $y(t)$, we can deduce enough information from $f(t)$ to sketch out a graph illustrating the behavior of $y(t)$ like:
 
 
-- where it is increasing/decreasing
-- locations of local and possibly global extrema
-- concavity and the location of points of inflection
+    - where it is increasing/decreasing
+    - locations of local and possibly global extrema
+    - concavity and the location of points of inflection
 
 2. **Algebraic Approach: Integration Techniques.** 
 
-The rules of differentiation are concrete. If we are proficient with them, we can play an educated guess and check game to find $y(t)$. 
+    The rules of differentiation are concrete. If we are proficient with them, we can play an educated guess and check game to find $y(t)$. 
 
-Standard integration techniques use rules for differentiation in clever ways to manipulate the problem into something more easily recognizable, e.g. $u$-substitution is based on the chain rule and integration by parts is based on the product rule.
+    Standard integration techniques use rules for differentiation in clever ways to manipulate the problem into something more easily recognizable, e.g. $u$-substitution is based on the chain rule and integration by parts is based on the product rule.
 
 3. **Numerical Approach: FTC + Riemann Sums.** 
 
-The fundamental theorem of calculus tells us that a solution to this problem *always* exists and gives us a procedure for constructing it:
-$$y(t)=C+\int_a^t f(x)dx $$  
+    The fundamental theorem of calculus tells us that a solution to this problem *always* exists and gives us a procedure for constructing it:
+    $$y(t)=C+\int_a^t f(x)dx $$  
 
-If we can't find a "nice"^[Disclaimer: I think integral formulas like the FTC are pretty nice.] formula for $y(t)$ (i.e. some finite combination of elementary functions), we can always write out the integral formula and evaluate it using numerical techniques, like Riemann Sums.
+    If we can't find a "nice"^[Disclaimer: I think integral formulas like the FTC are pretty nice.] formula for $y(t)$ (i.e. some finite combination of elementary functions), we can always write out the integral formula and evaluate it using numerical techniques, like Riemann Sums.
 
 ## What will we study?
 
@@ -46,7 +46,7 @@ Equations where there are multiple independent variables (e.g. time and *space*)
 
 We will start out with *first-order* equations, those that involve only the first derivative, and can be written in the form:
 
-::: {.callout-note appearance="minimal" icon=false}
+::: {#def-first-order}
 ### First-Order Equations
 Find $y:I\subseteq\mathbb R\to \mathbb R$ (or maybe $\mathbb C$) such that 
 
@@ -55,7 +55,7 @@ $$\frac{dy}{dt}=f(t,y)$$ for all $t$ in the interval $I$.
 
 Later on, we will discuss first-order *systems*, which will involve several dependent variables, each with an equation for its derivative. We can write these systems succinctly in *vector form* in terms of a vector-valued function $\mathbf{v}(t)$:
 
-::: {.callout-note appearance="minimal" icon=false}
+::: {#def-system}
 ### First-Order Systems
 
 Find $\mathbf{v}: I\subseteq\mathbb R\to \mathbb R^n$ (or maybe $\mathbb C^n$) such that $$\frac{d\mathbf{v}}{dt}=f(t,\mathbf{v})$$ for all $t$ in the interval $I$. 
@@ -63,13 +63,13 @@ Find $\mathbf{v}: I\subseteq\mathbb R\to \mathbb R^n$ (or maybe $\mathbb C^n$) s
 
 We will also discuss *second*-order equations (and maybe a few second-order systems), which add second derivatives into the mix:
 
-::: {.callout-note appearance="minimal" icon=false}
+::: {#def-second-order}
 ### Second-Order Equations
 Find $y:I\subseteq\mathbb R \to \mathbb R$ (or maybe $\mathbb C$) such that
 $$\frac{d^2y}{dt^2}=f\left(t,y,\frac{dy}{dt}\right)$$ for all $t$ in the interval $I$.
 :::
 
-## What is a Mathematical Model?
+# What is a Mathematical Model?
 
 Differential equations are interesting enough on their own. 
 However, the reason they were discovered and continue to be an area of active research is that they provide the right mathematical framework for modeling so many different real-world relationships. 
@@ -83,7 +83,7 @@ Our first example will walk us through the steps involved:
 2. Analyze the Model.
 3. Interpret the Model.
 
-## Step 1: Creating the Model 
+# Step 1: Creating the Model 
 
 :::{.step-label}
 Ask & Observe
@@ -104,21 +104,21 @@ State Clearly
 :::
 State your motivating questions and the assumptions you are making. Write out the resulting differential equation, clearly defining all variables and parameters that are being used.
 
-## Example: Sprint Speed
+### Discussion Problem 1: Sprint Speed
 Our first example is to create a model for how a sprinter's speed increases throughout a 100m race. Reasons why we may be interested in this:
 
 - To understand the human physiology of track athletes better
 - Insight on what training improvements to target to improve sprinter performance 
 
-### Assumptions
+#### Assumptions
 In this scenario, our assumptions are:
 
-1. Each sprinter's acceleration $a$ at any moment in time is determined by their mass $m$ and the net horizontal force acting on them $F$ by Newton's second law of motion.
-2. The net horizontal force $F$ is the difference between a sprinter's intrinsic propulsive force $F_P$ and a resistive force $F_R$.
-3. The intrinsic propulsive force $F_P$ is constant. It is determined by their mass and the raw acceleration $P$ they could theoretically achieve under maximum effort and in the absence of resistive forces.
-4. The resistive force $F_R$ opposes the sprinter's motion. We would expect that the resistive force would increase with the runner's speed $v$ and mass. Let's assume the resistive force is proportional to both of these quantities; let $k$ represent this proportionality constant.
+- Each sprinter's acceleration $a$ at any moment in time is determined by their mass $m$ and the net horizontal force acting on them $F$ by Newton's second law of motion.
+- The net horizontal force $F$ is the difference between a sprinter's intrinsic propulsive force $F_P$ and a resistive force $F_R$.
+- The intrinsic propulsive force $F_P$ is constant. It is determined by their mass and the raw acceleration $P$ they could theoretically achieve under maximum effort and in the absence of resistive forces.
+- The resistive force $F_R$ opposes the sprinter's motion. We would expect that the resistive force would increase with the runner's speed $v$ and mass. Let's assume the resistive force is proportional to both of these quantities; let $k$ represent this proportionality constant.
 
-### Discussion Problem 1: Create the model
+#### Create the Sprint Speed Model
 a. With these assumptions, write down an equation modeling the relationship between a sprinter's acceleration and their speed during a race. 
 b. Identify and define any independent variables, dependent variables, and parameters in the model. Are we making any assumptions about the values of the parameters or variables in our model?
 c. If mass is measured in kilograms (kg), distance in meters (m), and time in seconds (s), what units would make sense for the parameters/variables in the model?
